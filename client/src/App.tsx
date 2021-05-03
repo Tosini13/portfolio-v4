@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Drawer } from "@material-ui/core";
+import React from "react";
+import styled from "styled-components";
+import SideBar from "./components/menu/SideBar";
+
+const DrawerStyled = styled(Drawer)`
+  height: 100vh;
+  flex-shrink: 0;
+`;
+
+const BodyContainerStyled = styled.div`
+  display: flex;
+`;
+
+const MainContainerStyled = styled.main`
+  flex-grow: 1;
+  min-height: 100vh;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BodyContainerStyled>
+      <DrawerStyled variant="permanent" anchor="left">
+        <SideBar />
+      </DrawerStyled>
+      <MainContainerStyled></MainContainerStyled>
+    </BodyContainerStyled>
   );
 }
 
