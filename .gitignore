@@ -3,3 +3,7 @@ node_modules
 
 # ENVS
 server/.env
+
+
+# BUILD
+server/build
