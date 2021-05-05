@@ -1,11 +1,20 @@
 import { Drawer } from "@material-ui/core";
 import React from "react";
 import styled from "styled-components";
+import About from "./components/about/About";
+import Home from "./components/home/Home";
 import SideBar from "./components/menu/SideBar";
+import Resume from "./components/resume/Resume";
+import Skills from "./components/skills/Skills";
+
+const drawerWidth = "250px";
 
 const DrawerStyled = styled(Drawer)`
   height: 100vh;
-  flex-shrink: 0;
+  width: ${drawerWidth};
+  .MuiPaper-root {
+    width: ${drawerWidth};
+  }
 `;
 
 const BodyContainerStyled = styled.div`
@@ -13,8 +22,9 @@ const BodyContainerStyled = styled.div`
 `;
 
 const MainContainerStyled = styled.main`
-  flex-grow: 1;
   min-height: 100vh;
+  flex-grow: 1;
+  padding-bottom: 50px;
 `;
 
 function App() {
@@ -23,7 +33,12 @@ function App() {
       <DrawerStyled variant="permanent" anchor="left">
         <SideBar />
       </DrawerStyled>
-      <MainContainerStyled></MainContainerStyled>
+      <MainContainerStyled>
+        <Home />
+        <About />
+        <Skills />
+        <Resume />
+      </MainContainerStyled>
     </BodyContainerStyled>
   );
 }

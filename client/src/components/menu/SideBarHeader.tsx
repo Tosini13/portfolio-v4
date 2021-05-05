@@ -4,12 +4,13 @@ import MyImage from "../../images/me.jpeg";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
+import { mainTheme } from "../../styled/config";
 
 const ImgStyled = styled.img`
   border-radius: 50%;
   width: 100px;
   height: 100px;
-  background-color: gray;
+  border: ${mainTheme.palette.secondary.light} solid 2px;
   padding: 5px;
 `;
 

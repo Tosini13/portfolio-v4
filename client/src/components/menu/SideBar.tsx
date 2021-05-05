@@ -5,7 +5,6 @@ import MainMenu from "./MainMenu";
 import SideBarHeader from "./SideBarHeader";
 
 const SideBarContainer = styled.div`
-  width: 240px;
   padding: 10px 20px;
   background-color: ${mainTheme.palette.secondary.main};
   color: ${mainTheme.palette.text.secondary};

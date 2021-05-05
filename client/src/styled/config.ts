@@ -8,7 +8,8 @@ export const mainTheme = createMuiTheme({
     },
     secondary: {
       main: "#040b14",
-      light: "#212431",
+      dark: "#212431",
+      light: "#149ddd",
     },
     text: {
       primary: "#000",
