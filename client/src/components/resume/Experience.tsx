@@ -55,7 +55,7 @@ const experiences: TExperience[] = [
     title: "Web Developer",
     company: "Apptimia Szczecin, Poland",
     fromDate: new Date("2020/07/01").toISOString(),
-    toDate: "till now",
+    toDate: "present",
     description:
       "I am developing professional website with company based in California, United States",
   },

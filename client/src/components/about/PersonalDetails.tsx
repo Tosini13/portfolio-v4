@@ -3,8 +3,8 @@ import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import { mainTheme } from "../../styled/config";
 
 const gridSize = {
-  sm: 6 as GridSize,
-  xs: 12 as GridSize,
+  lg: 6 as GridSize,
+  md: 12 as GridSize,
 };
 
 export interface PersonalDetailsProps {}
@@ -14,25 +14,25 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = () => {
     <>
       <Typography variant="h6">WEB DEVELOPER</Typography>
       <Grid container>
-        <Grid item sm={gridSize.sm} xs={gridSize.xs}>
+        <Grid item {...gridSize}>
           <PersonalDetailsItem title="Birthday" content="20.07.1997" />
         </Grid>
-        <Grid item sm={gridSize.sm} xs={gridSize.xs}>
+        <Grid item {...gridSize}>
           <PersonalDetailsItem title="Age" content="24" />
         </Grid>
-        <Grid item sm={gridSize.sm} xs={gridSize.xs}>
+        <Grid item {...gridSize}>
           <PersonalDetailsItem title="Website" content="jakub.bartosik.eu" />
         </Grid>
-        <Grid item sm={gridSize.sm} xs={gridSize.xs}>
+        <Grid item {...gridSize}>
           <PersonalDetailsItem
             title="Degree"
             content="Engineer (Computer Science)"
           />
         </Grid>
-        <Grid item sm={gridSize.sm} xs={gridSize.xs}>
+        <Grid item {...gridSize}>
           <PersonalDetailsItem title="Phone" content="+48 696 993 916" />
         </Grid>
-        <Grid item sm={gridSize.sm} xs={gridSize.xs}>
+        <Grid item {...gridSize}>
           <PersonalDetailsItem title="Email" content="jbartos13@gmail.com" />
         </Grid>
       </Grid>
@@ -51,7 +51,7 @@ const PersonalDetailsItem: React.FC<TPersonalDetailsItemProps> = ({
   title,
   content,
 }) => (
-  <Grid container spacing={1} alignItems="center">
+  <Grid container spacing={1} alignItems="center" wrap="nowrap">
     <Grid item>
       <KeyboardArrowRightIcon
         fontSize="small"
