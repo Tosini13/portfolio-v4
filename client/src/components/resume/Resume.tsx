@@ -18,20 +18,14 @@ const Resume: React.SFC<ResumeProps> = () => {
       <SectionHeader>Resume</SectionHeader>
       <Grid container spacing={1} justify="space-evenly">
         <Grid item xs={gridSize.xs} sm={gridSize.sm}>
-          <Grid container direction="column" spacing={3}>
-            <Grid item>
-              <Typography>Summary</Typography>
-              <TimeLineWrapper>
-                <Summary />
-              </TimeLineWrapper>
-            </Grid>
-            <Grid item>
-              <Typography>Education</Typography>
-              <TimeLineWrapper>
-                <Education />
-              </TimeLineWrapper>
-            </Grid>
-          </Grid>
+          <Typography>Summary</Typography>
+          <TimeLineWrapper>
+            <Summary />
+          </TimeLineWrapper>
+          <Typography>Education</Typography>
+          <TimeLineWrapper>
+            <Education />
+          </TimeLineWrapper>
         </Grid>
         <Grid item xs={gridSize.xs} sm={gridSize.sm}>
           <Typography>Professional Experience</Typography>

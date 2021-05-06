@@ -16,8 +16,8 @@ export interface SideBarProps {}
 const SideBar: React.FC<SideBarProps> = () => {
   return (
     <SideBarContainer>
-      <Grid container direction="column" spacing={4} style={{ height: "100%" }}>
-        <Grid item>
+      <Grid container direction="column" style={{ height: "100%" }}>
+        <Grid item style={{ marginBottom: "20px" }}>
           <SideBarHeader />
         </Grid>
         <Grid item>

@@ -43,7 +43,7 @@ export interface TimeLineWrapperProps {}
 
 const TimeLineWrapper: React.FC<TimeLineWrapperProps> = ({ children }) => {
   return (
-    <Grid container style={{ position: "relative" }}>
+    <Grid container style={{ position: "relative", marginBottom: "30px" }}>
       <TimeLine />
       <Grid item style={{ paddingLeft: "20px" }}>
         {children}

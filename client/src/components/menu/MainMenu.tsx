@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Hidden, Typography } from "@material-ui/core";
 import {
   Home,
   PermIdentity,
@@ -17,8 +17,8 @@ const GridContainer = styled(Grid)`
 export interface MainMenuProps {}
 
 const MainMenu: React.FC<MainMenuProps> = () => {
-  return (
-    <GridContainer container direction="column" spacing={3}>
+  const Items = (
+    <>
       <Grid item>
         <MenuItem icon={<Home />} text="Home" />
       </Grid>
@@ -37,7 +37,22 @@ const MainMenu: React.FC<MainMenuProps> = () => {
       <Grid item>
         <MenuItem icon={<MailOutline />} text="Contact" />
       </Grid>
-    </GridContainer>
+    </>
+  );
+
+  return (
+    <>
+      <Hidden xsDown>
+        <GridContainer container direction="column" spacing={3}>
+          {Items}
+        </GridContainer>
+      </Hidden>
+      <Hidden smUp>
+        <GridContainer container direction="column" spacing={2}>
+          {Items}
+        </GridContainer>
+      </Hidden>
+    </>
   );
 };
 

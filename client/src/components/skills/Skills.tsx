@@ -67,38 +67,32 @@ const Skills: React.FC<SkillsProps> = () => {
             </FrontendBox>
           </Grid>
           <Grid item sm={5}>
-            <Grid container direction="column" spacing={5}>
-              <Grid item>
-                <BackendBox variant="elevation">
-                  <BoxBackendTitle>BackEnd</BoxBackendTitle>
-                  <Grid container spacing={1} justify="space-evenly">
-                    {backEndTechnologies.map((technology) => (
-                      <Grid item {...gridSizeSkills} key={technology.title}>
-                        <SkillSummary
-                          logoSrc={technology.logoSrc}
-                          title={technology.title}
-                        />
-                      </Grid>
-                    ))}
+            <BackendBox variant="elevation" style={{ marginBottom: "25px" }}>
+              <BoxBackendTitle>BackEnd</BoxBackendTitle>
+              <Grid container spacing={1} justify="space-evenly">
+                {backEndTechnologies.map((technology) => (
+                  <Grid item {...gridSizeSkills} key={technology.title}>
+                    <SkillSummary
+                      logoSrc={technology.logoSrc}
+                      title={technology.title}
+                    />
                   </Grid>
-                </BackendBox>{" "}
+                ))}
               </Grid>
-              <Grid item>
-                <BackendBox variant="elevation">
-                  <BoxBackendTitle>Tools</BoxBackendTitle>
-                  <Grid container spacing={1} justify="space-evenly">
-                    {tools.map((technology) => (
-                      <Grid item {...gridSizeSkills} key={technology.title}>
-                        <SkillSummary
-                          logoSrc={technology.logoSrc}
-                          title={technology.title}
-                        />
-                      </Grid>
-                    ))}
+            </BackendBox>
+            <BackendBox variant="elevation">
+              <BoxBackendTitle>Tools</BoxBackendTitle>
+              <Grid container spacing={1} justify="space-evenly">
+                {tools.map((technology) => (
+                  <Grid item {...gridSizeSkills} key={technology.title}>
+                    <SkillSummary
+                      logoSrc={technology.logoSrc}
+                      title={technology.title}
+                    />
                   </Grid>
-                </BackendBox>
+                ))}
               </Grid>
-            </Grid>
+            </BackendBox>
           </Grid>
         </Grid>
       </div>
