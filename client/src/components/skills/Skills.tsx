@@ -1,11 +1,5 @@
 import { Grid, GridSize, Paper } from "@material-ui/core";
 import styled from "styled-components";
-import HTML from "../../images/technologies/html5.png";
-import CSS from "../../images/technologies/css3.jpg";
-import JS from "../../images/technologies/javaScript.jpg";
-import TS from "../../images/technologies/typeScript.png";
-import FIREBASE from "../../images/technologies/firebase.webp";
-import PHP from "../../images/technologies/php.webp";
 import SkillSummary from "./SkillSummary";
 import {
   E_SECTION_BACKGROUND,
@@ -13,15 +7,16 @@ import {
   SectionWrapper,
 } from "../layout/SectionWrapper";
 import { mainTheme } from "../../styled/config";
+import { backEndTechnologies, frontEndTechnologies, tools } from "./mockSkills";
 
-const gridSize = {
-  sm: 5 as GridSize,
-  xs: 12 as GridSize,
+const gridSizeSkills = {
+  lg: 5 as GridSize,
+  md: 9 as GridSize,
 };
 
 const FrontendBox = styled(Paper)`
   border: ${mainTheme.palette.secondary.light} solid 1px;
-  padding: 5px;
+  padding: 20px 0px;
   padding-right: 20px;
   position: relative;
   overflow: hidden;
@@ -40,8 +35,8 @@ const BoxTitle = styled.div`
   font-weight: bold;
   background-color: ${mainTheme.palette.secondary.light};
   color: white;
-  transform: translate(29%, 65%) rotate(45deg);
-  padding: 1px 20px;
+  transform: translate(34%, 65%) rotate(45deg);
+  padding: 1px 40px;
 `;
 
 const BoxBackendTitle = styled(BoxTitle)`
@@ -56,12 +51,12 @@ const Skills: React.FC<SkillsProps> = () => {
       <SectionHeader>Skills</SectionHeader>
       <div style={{ padding: "0px 10px" }}>
         <Grid container justify="space-evenly" spacing={3}>
-          <Grid item>
+          <Grid item sm={5}>
             <FrontendBox variant="elevation">
               <BoxTitle>FrontEnd</BoxTitle>
               <Grid container spacing={1} justify="space-evenly">
                 {frontEndTechnologies.map((technology) => (
-                  <Grid item xs={gridSize.xs} sm={gridSize.sm}>
+                  <Grid item {...gridSizeSkills} key={technology.title}>
                     <SkillSummary
                       logoSrc={technology.logoSrc}
                       title={technology.title}
@@ -71,35 +66,39 @@ const Skills: React.FC<SkillsProps> = () => {
               </Grid>
             </FrontendBox>
           </Grid>
-          <Grid item>
-            <BackendBox variant="elevation">
-              <BoxBackendTitle>BackEnd</BoxBackendTitle>
-              <Grid container spacing={1} justify="space-evenly">
-                {backEndTechnologies.map((technology) => (
-                  <Grid item xs={gridSize.xs} sm={gridSize.sm}>
-                    <SkillSummary
-                      logoSrc={technology.logoSrc}
-                      title={technology.title}
-                    />
+          <Grid item sm={5}>
+            <Grid container direction="column" spacing={5}>
+              <Grid item>
+                <BackendBox variant="elevation">
+                  <BoxBackendTitle>BackEnd</BoxBackendTitle>
+                  <Grid container spacing={1} justify="space-evenly">
+                    {backEndTechnologies.map((technology) => (
+                      <Grid item {...gridSizeSkills} key={technology.title}>
+                        <SkillSummary
+                          logoSrc={technology.logoSrc}
+                          title={technology.title}
+                        />
+                      </Grid>
+                    ))}
                   </Grid>
-                ))}
+                </BackendBox>{" "}
               </Grid>
-            </BackendBox>
-          </Grid>
-          <Grid item>
-            <BackendBox variant="elevation">
-              <BoxBackendTitle>Manage</BoxBackendTitle>
-              <Grid container spacing={1} justify="space-evenly">
-                {backEndTechnologies.map((technology) => (
-                  <Grid item xs={gridSize.xs} sm={gridSize.sm}>
-                    <SkillSummary
-                      logoSrc={technology.logoSrc}
-                      title={technology.title}
-                    />
+              <Grid item>
+                <BackendBox variant="elevation">
+                  <BoxBackendTitle>Tools</BoxBackendTitle>
+                  <Grid container spacing={1} justify="space-evenly">
+                    {tools.map((technology) => (
+                      <Grid item {...gridSizeSkills} key={technology.title}>
+                        <SkillSummary
+                          logoSrc={technology.logoSrc}
+                          title={technology.title}
+                        />
+                      </Grid>
+                    ))}
                   </Grid>
-                ))}
+                </BackendBox>
               </Grid>
-            </BackendBox>
+            </Grid>
           </Grid>
         </Grid>
       </div>
@@ -108,42 +107,3 @@ const Skills: React.FC<SkillsProps> = () => {
 };
 
 export default Skills;
-
-type TTechnology = {
-  logoSrc: string;
-  title: string;
-};
-
-const frontEndTechnologies: TTechnology[] = [
-  {
-    logoSrc: HTML,
-    title: "HTML 5",
-  },
-  {
-    logoSrc: CSS,
-    title: "CSS 5",
-  },
-  {
-    logoSrc: JS,
-    title: "JavaScript",
-  },
-  {
-    logoSrc: TS,
-    title: "TypeScript",
-  },
-];
-
-const backEndTechnologies: TTechnology[] = [
-  {
-    logoSrc: FIREBASE,
-    title: "Node.js",
-  },
-  {
-    logoSrc: FIREBASE,
-    title: "Firebase",
-  },
-  {
-    logoSrc: PHP,
-    title: "PHP",
-  },
-];

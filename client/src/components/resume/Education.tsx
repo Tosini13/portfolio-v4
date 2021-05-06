@@ -1,5 +1,7 @@
 import { Typography } from "@material-ui/core";
+import { format } from "date-fns";
 import { Bullet, TimeStampContainer } from "../layout/TimeLineWrapper";
+import { DatesTypography, FORMAT_DATE_EXP } from "./Experience";
 
 export interface EducationProps {}
 
@@ -7,11 +9,12 @@ const Education: React.FC<EducationProps> = () => {
   return (
     <>
       {educations.map((education) => (
-        <TimeStampContainer>
+        <TimeStampContainer key={education.title}>
           <Bullet>{education.title}</Bullet>
-          <Typography>
-            {education.fromDate} - {education.toDate}
-          </Typography>
+          <DatesTypography>
+            {format(new Date(education.fromDate), FORMAT_DATE_EXP)} -{" "}
+            {format(new Date(education.toDate), FORMAT_DATE_EXP)}
+          </DatesTypography>
           <Typography>{education.description}</Typography>
         </TimeStampContainer>
       ))}
@@ -31,14 +34,14 @@ type TEducation = {
 const educations: TEducation[] = [
   {
     title: "West Pomeranian University of Technology in Szczecin",
-    fromDate: new Date("2016/09/01").toISOString(),
-    toDate: new Date("2020/09/01").toISOString(),
+    fromDate: "2016/09/01",
+    toDate: "2020/09/01",
     description: "Studied in Szczecin in Poland Computer Science",
   },
   {
     title: "PA College, Larnaca, Cyprus",
-    fromDate: new Date("2018/09/01").toISOString(),
-    toDate: new Date("2019/05/23").toISOString(),
+    fromDate: "2018/09/01",
+    toDate: "2019/05/23",
     description: "Studied Computer Science within Erasmus Programme",
   },
 ];
