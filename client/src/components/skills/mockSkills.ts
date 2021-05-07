@@ -17,6 +17,7 @@ import SASS from "../../images/technologies/sass.png";
 import SQL from "../../images/technologies/sql.webp";
 import JIRA from "../../images/technologies/jira.png";
 import NODE_JS from "../../images/technologies/nodeJs.png";
+import GRAPH_QL from "../../images/technologies/GraphQL_Logo.png";
 
 type TTechnology = {
   logoSrc: string;
@@ -86,6 +87,10 @@ export const backEndTechnologies: TTechnology[] = [
   {
     logoSrc: SQL,
     title: "SQL",
+  },
+  {
+    logoSrc: GRAPH_QL,
+    title: "Graph QL",
   },
 ];
 
