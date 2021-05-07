@@ -54,6 +54,7 @@ type TExperience = {
   fromDate: string;
   toDate: string;
   description: string;
+  techonologies: string[];
 };
 
 const experiences: TExperience[] = [
@@ -63,13 +64,16 @@ const experiences: TExperience[] = [
     fromDate: "2019/06/01",
     toDate: "2019/07/31",
     description: "Development of the REaCT website - fro refugees",
+    techonologies: ["Wordpress", "HTML 5", "CSS 3"],
   },
   {
     title: "FrontEnd Developer (Internship)",
     company: "IAI Szczecin, Poland",
     fromDate: "2020/03/01",
     toDate: "2020/03/31",
-    description: "Development of the company's product",
+    description:
+      "Development of the company's product. Used JavaSCript, HTML, CSS, less, gulp",
+    techonologies: ["HTML 5", "CSS 3", "JavaScript", "Less"],
   },
   {
     title: "PHP Developer",
@@ -77,6 +81,7 @@ const experiences: TExperience[] = [
     fromDate: "2020/06/01",
     toDate: "2019/07/15",
     description: "Development of the company's product in Wordpress",
+    techonologies: ["HTML 5", "CSS 3", "Wordpress", "PHP", "GitLab"],
   },
   {
     title: "Web Developer",
@@ -85,5 +90,18 @@ const experiences: TExperience[] = [
     toDate: "present",
     description:
       "I am developing professional website with company based in California, United States",
+    techonologies: [
+      "TypeScript",
+      "React.js",
+      "MobX",
+      "Material UI",
+      "Leaflet.js",
+      "Sass",
+      "HTML 5",
+      "CSS 3",
+      "Graph QL",
+      "GitHub",
+      "Jira",
+    ],
   },
 ];

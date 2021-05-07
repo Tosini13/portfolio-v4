@@ -51,7 +51,7 @@ export const frontEndTechnologies: TTechnology[] = [
   },
   {
     logoSrc: REACT,
-    title: "React",
+    title: "React.js",
   },
   {
     logoSrc: REDUX,
