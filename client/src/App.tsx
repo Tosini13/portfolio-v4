@@ -4,6 +4,7 @@ import styled from "styled-components";
 import About from "./components/about/About";
 import Home from "./components/home/Home";
 import SideBar from "./components/menu/SideBar";
+import Perfection from "./components/perfection/Perfection";
 import Resume from "./components/resume/Resume";
 import Skills from "./components/skills/Skills";
 import Hamburger from "./styled/buttons";
@@ -58,6 +59,7 @@ function App() {
         <About />
         <Skills />
         <Resume />
+        <Perfection />
       </MainContainerStyled>
     </BodyContainerStyled>
   );
