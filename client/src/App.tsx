@@ -1,5 +1,7 @@
+import { useState } from "react";
+import { BrowserRouter } from "react-router-dom";
+
 import { Drawer, Hidden } from "@material-ui/core";
-import React, { useState } from "react";
 import styled from "styled-components";
 import About from "./components/about/About";
 import Home from "./components/home/Home";
@@ -34,34 +36,36 @@ const MainContainerStyled = styled.main`
 function App() {
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
   return (
-    <BodyContainerStyled>
-      <Hidden smDown>
-        <DrawerStyled variant="permanent" anchor="left">
-          <SideBar />
-        </DrawerStyled>
-      </Hidden>
-      <Hidden mdUp>
-        <DrawerStyled
-          variant="temporary"
-          anchor="left"
-          open={openDrawer}
-          onClose={() => setOpenDrawer(false)}
-        >
-          <SideBar />
-        </DrawerStyled>
-        <Hamburger
-          open={openDrawer}
-          toggleOpen={() => setOpenDrawer(!openDrawer)}
-        />
-      </Hidden>
-      <MainContainerStyled>
-        <Home />
-        <About />
-        <Skills />
-        <Resume />
-        <Perfection />
-      </MainContainerStyled>
-    </BodyContainerStyled>
+    <BrowserRouter>
+      <BodyContainerStyled>
+        <Hidden smDown>
+          <DrawerStyled variant="permanent" anchor="left">
+            <SideBar />
+          </DrawerStyled>
+        </Hidden>
+        <Hidden mdUp>
+          <DrawerStyled
+            variant="temporary"
+            anchor="left"
+            open={openDrawer}
+            onClose={() => setOpenDrawer(false)}
+          >
+            <SideBar />
+          </DrawerStyled>
+          <Hamburger
+            open={openDrawer}
+            toggleOpen={() => setOpenDrawer(!openDrawer)}
+          />
+        </Hidden>
+        <MainContainerStyled>
+          <Home />
+          <About />
+          <Skills />
+          <Resume />
+          <Perfection />
+        </MainContainerStyled>
+      </BodyContainerStyled>
+    </BrowserRouter>
   );
 }
 
