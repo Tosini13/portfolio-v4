@@ -18,20 +18,18 @@ import SQL from "../../images/technologies/sql.webp";
 import JIRA from "../../images/technologies/jira.png";
 import NODE_JS from "../../images/technologies/nodeJs.png";
 import GRAPH_QL from "../../images/technologies/GraphQL_Logo.png";
+import { ETechnologyField, ITechnology } from "../../models/technology";
 
-type TTechnology = {
-  logoSrc: string;
-  title: string;
-};
+type MockTechnology = Omit<ITechnology, "id" | "field">;
 
-export const frontEndTechnologies: TTechnology[] = [
+const frontEndTechnologies: MockTechnology[] = [
   {
     logoSrc: HTML,
     title: "HTML 5",
   },
   {
     logoSrc: CSS,
-    title: "CSS 5",
+    title: "CSS 3",
   },
   {
     logoSrc: JS,
@@ -71,7 +69,7 @@ export const frontEndTechnologies: TTechnology[] = [
   },
 ];
 
-export const backEndTechnologies: TTechnology[] = [
+const backEndTechnologies: MockTechnology[] = [
   {
     logoSrc: NODE_JS,
     title: "Node.js",
@@ -94,7 +92,7 @@ export const backEndTechnologies: TTechnology[] = [
   },
 ];
 
-export const tools: TTechnology[] = [
+const tools: MockTechnology[] = [
   {
     logoSrc: FIGMA,
     title: "Figma",
@@ -112,3 +110,27 @@ export const tools: TTechnology[] = [
     title: "Jira",
   },
 ];
+
+let i = 1;
+const mockTechnologies: ITechnology[] = [
+  ...frontEndTechnologies.map((tech) => ({
+    id: Number(i++).toString(),
+    title: tech.title,
+    logoSrc: tech.logoSrc,
+    field: ETechnologyField.FRONTEND,
+  })),
+  ...backEndTechnologies.map((tech) => ({
+    id: Number(i++).toString(),
+    title: tech.title,
+    logoSrc: tech.logoSrc,
+    field: ETechnologyField.BACKEND,
+  })),
+  ...tools.map((tech) => ({
+    id: Number(i++).toString(),
+    title: tech.title,
+    logoSrc: tech.logoSrc,
+    field: ETechnologyField.TOOLS,
+  })),
+];
+
+export default mockTechnologies;

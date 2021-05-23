@@ -7,7 +7,8 @@ import {
   SectionWrapper,
 } from "../layout/SectionWrapper";
 import { mainTheme } from "../../styled/config";
-import { backEndTechnologies, frontEndTechnologies, tools } from "./mockSkills";
+import mockTechnologies from "./mockSkills";
+import { ETechnologyField } from "../../models/technology";
 
 const gridSizeSkills = {
   lg: 5 as GridSize,
@@ -55,14 +56,16 @@ const Skills: React.FC<SkillsProps> = () => {
             <FrontendBox variant="elevation">
               <BoxTitle>FrontEnd</BoxTitle>
               <Grid container spacing={1} justify="space-evenly">
-                {frontEndTechnologies.map((technology) => (
-                  <Grid item {...gridSizeSkills} key={technology.title}>
-                    <SkillSummary
-                      logoSrc={technology.logoSrc}
-                      title={technology.title}
-                    />
-                  </Grid>
-                ))}
+                {mockTechnologies
+                  .filter((tech) => tech.field === ETechnologyField.FRONTEND)
+                  .map((technology) => (
+                    <Grid item {...gridSizeSkills} key={technology.id}>
+                      <SkillSummary
+                        logoSrc={technology.logoSrc}
+                        title={technology.title}
+                      />
+                    </Grid>
+                  ))}
               </Grid>
             </FrontendBox>
           </Grid>
@@ -70,27 +73,31 @@ const Skills: React.FC<SkillsProps> = () => {
             <BackendBox variant="elevation" style={{ marginBottom: "25px" }}>
               <BoxBackendTitle>BackEnd</BoxBackendTitle>
               <Grid container spacing={1} justify="space-evenly">
-                {backEndTechnologies.map((technology) => (
-                  <Grid item {...gridSizeSkills} key={technology.title}>
-                    <SkillSummary
-                      logoSrc={technology.logoSrc}
-                      title={technology.title}
-                    />
-                  </Grid>
-                ))}
+                {mockTechnologies
+                  .filter((tech) => tech.field === ETechnologyField.BACKEND)
+                  .map((technology) => (
+                    <Grid item {...gridSizeSkills} key={technology.id}>
+                      <SkillSummary
+                        logoSrc={technology.logoSrc}
+                        title={technology.title}
+                      />
+                    </Grid>
+                  ))}
               </Grid>
             </BackendBox>
             <BackendBox variant="elevation">
               <BoxBackendTitle>Tools</BoxBackendTitle>
               <Grid container spacing={1} justify="space-evenly">
-                {tools.map((technology) => (
-                  <Grid item {...gridSizeSkills} key={technology.title}>
-                    <SkillSummary
-                      logoSrc={technology.logoSrc}
-                      title={technology.title}
-                    />
-                  </Grid>
-                ))}
+                {mockTechnologies
+                  .filter((tech) => tech.field === ETechnologyField.TOOLS)
+                  .map((technology) => (
+                    <Grid item {...gridSizeSkills} key={technology.id}>
+                      <SkillSummary
+                        logoSrc={technology.logoSrc}
+                        title={technology.title}
+                      />
+                    </Grid>
+                  ))}
               </Grid>
             </BackendBox>
           </Grid>

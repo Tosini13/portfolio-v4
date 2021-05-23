@@ -10,6 +10,7 @@ import Perfection from "./components/perfection/Perfection";
 import Resume from "./components/resume/Resume";
 import Skills from "./components/skills/Skills";
 import Hamburger from "./styled/buttons";
+import Portfolio from "./components/portfolio/Portfolio";
 
 const drawerWidth = "250px";
 
@@ -63,6 +64,7 @@ function App() {
           <Skills />
           <Resume />
           <Perfection />
+          <Portfolio />
         </MainContainerStyled>
       </BodyContainerStyled>
     </BrowserRouter>
