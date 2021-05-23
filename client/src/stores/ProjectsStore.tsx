@@ -29,7 +29,6 @@ export class Project implements IProject {
     this.description = tech.description;
     this.www = tech.www;
     this.github = tech.github;
-    this.github = tech.github;
     this.technologies = tech.technologies;
   }
 }

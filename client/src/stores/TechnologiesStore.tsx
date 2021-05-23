@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { observable, makeObservable } from "mobx";
+import { observable, makeObservable, computed } from "mobx";
 import { Id } from "../models/general";
 import mockTechnologies from "../components/skills/mockSkills";
 import { ETechnologyField, ITechnology } from "../models/technology";
@@ -31,9 +31,30 @@ export class TechnologiesStore {
     return this.technologies;
   }
 
+  get getFrontend() {
+    return this.technologies.filter(
+      (tech) => tech.field === ETechnologyField.FRONTEND
+    );
+  }
+
+  get getBackend() {
+    return this.technologies.filter(
+      (tech) => tech.field === ETechnologyField.BACKEND
+    );
+  }
+
+  get getTools() {
+    return this.technologies.filter(
+      (tech) => tech.field === ETechnologyField.TOOLS
+    );
+  }
+
   constructor() {
     makeObservable(this, {
       technologies: observable,
+      getFrontend: computed,
+      getBackend: computed,
+      getTools: computed,
     });
 
     this.technologies = mockTechnologies.map((tech) => new Technology(tech));

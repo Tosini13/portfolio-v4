@@ -1,6 +1,7 @@
 import { Typography } from "@material-ui/core";
 import { format, isSameMonth } from "date-fns";
 import styled from "styled-components";
+import { Experience } from "../../stores/TimeStore";
 import { Bullet, TimeStampContainer } from "../layout/TimeLineWrapper";
 
 export const FORMAT_DATE_EXP = "yyyy/MM";
@@ -25,83 +26,27 @@ const showToDate = (fromDate: string, toDate: string) => {
   }
 };
 
-export interface ExperienceProps {}
+export interface ExperienceProps {
+  jobs: Experience[];
+}
 
-const Experience: React.FC<ExperienceProps> = () => {
+const ExperienceComponent: React.FC<ExperienceProps> = ({ jobs }) => {
   return (
     <>
-      {experiences.map((experience) => (
-        <TimeStampContainer key={experience.company}>
+      {jobs.map((exp) => (
+        <TimeStampContainer key={exp.institution}>
           {/* key change to id */}
-          <Bullet>{experience.title}</Bullet>
-          <Typography>{experience.company}</Typography>
+          <Bullet>{exp.title}</Bullet>
+          <Typography>{exp.institution}</Typography>
           <DatesTypography>
-            {format(new Date(experience.fromDate), FORMAT_DATE_EXP)}
-            {showToDate(experience.fromDate, experience.toDate)}
+            {format(new Date(exp.fromDate), FORMAT_DATE_EXP)}
+            {showToDate(exp.fromDate, exp.toDate)}
           </DatesTypography>
-          <Typography>{experience.description}</Typography>
+          <Typography>{exp.description}</Typography>
         </TimeStampContainer>
       ))}
     </>
   );
 };
 
-export default Experience;
-
-type TExperience = {
-  title: string;
-  company: string;
-  fromDate: string;
-  toDate: string;
-  description: string;
-  techonologies: string[];
-};
-
-const experiences: TExperience[] = [
-  {
-    title: "FrontEnd Developer (Internship)",
-    company: "DOREA international Institute, Limassol, Cyprus",
-    fromDate: "2019/06/01",
-    toDate: "2019/07/31",
-    description: "Development of the REaCT website - fro refugees",
-    techonologies: ["Wordpress", "HTML 5", "CSS 3"],
-  },
-  {
-    title: "FrontEnd Developer (Internship)",
-    company: "IAI Szczecin, Poland",
-    fromDate: "2020/03/01",
-    toDate: "2020/03/31",
-    description:
-      "Development of the company's product. Used JavaSCript, HTML, CSS, less, gulp",
-    techonologies: ["HTML 5", "CSS 3", "JavaScript", "Less"],
-  },
-  {
-    title: "PHP Developer",
-    company: "Mayeryn Warsaw, Poland",
-    fromDate: "2020/06/01",
-    toDate: "2019/07/15",
-    description: "Development of the company's product in Wordpress",
-    techonologies: ["HTML 5", "CSS 3", "Wordpress", "PHP", "GitLab"],
-  },
-  {
-    title: "Web Developer",
-    company: "Apptimia Szczecin, Poland",
-    fromDate: "2020/07/01",
-    toDate: "present",
-    description:
-      "I am developing professional website with company based in California, United States",
-    techonologies: [
-      "TypeScript",
-      "React.js",
-      "MobX",
-      "Material UI",
-      "Leaflet.js",
-      "Sass",
-      "HTML 5",
-      "CSS 3",
-      "Graph QL",
-      "GitHub",
-      "Jira",
-    ],
-  },
-];
+export default ExperienceComponent;
