@@ -1,7 +1,7 @@
 import { createContext } from "react";
 import { observable, makeObservable, computed } from "mobx";
 import { Id } from "../models/general";
-import mockTechnologies from "../components/skills/mockSkills";
+import mockTechnologies from "./mock/mockSkills";
 import { ETechnologyField, ITechnology } from "../models/technology";
 
 export class Technology implements ITechnology {

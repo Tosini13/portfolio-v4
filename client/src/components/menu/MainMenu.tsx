@@ -6,6 +6,7 @@ import { Grid, Hidden, Typography } from "@material-ui/core";
 import styled from "styled-components";
 import { mainTheme } from "../../styled/config";
 import useRoutes from "./useRoutes";
+import { parseStyledBoolean } from "../../styled/booleanParser";
 
 const GridContainer = styled(Grid)`
   padding-left: 10px;
@@ -18,7 +19,7 @@ const MainMenu: React.FC<MainMenuProps> = () => {
   const Items = (
     <>
       {routes.map((route) => (
-        <Grid item>
+        <Grid item key={route.title}>
           <MenuItem path={route.path} icon={route.icon} text={route.title} />
         </Grid>
       ))}
@@ -44,7 +45,7 @@ const MainMenu: React.FC<MainMenuProps> = () => {
 export default MainMenu;
 
 const LinkStyled = styled(Link)<{
-  current: boolean;
+  current?: string;
 }>`
   transition: color 0.25s;
   text-decoration: none;
@@ -87,7 +88,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ icon, text, path }) => {
   return (
     <LinkStyled
       to={path}
-      current={path === location.pathname}
+      current={parseStyledBoolean(path === location.pathname)}
       onClick={scrollToSection}
     >
       <GridMenuItemContainer container alignItems="center" spacing={2}>

@@ -2,7 +2,7 @@ import { createContext } from "react";
 import { observable, makeObservable } from "mobx";
 import { IProject } from "../models/project";
 import { Id } from "../models/general";
-import { mockPortfolio } from "../components/portfolio/mockPortfolio";
+import { mockPortfolio } from "./mock/mockPortfolio";
 
 export class Project implements IProject {
   id: Id;
