@@ -1,6 +1,9 @@
 import { Grid, GridSize, Typography } from "@material-ui/core";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
+import { differenceInYears, format } from "date-fns";
 import { mainTheme } from "../../styled/config";
+
+const birthday = "1997/07/20";
 
 const gridSize = {
   lg: 6 as GridSize,
@@ -15,10 +18,16 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = () => {
       <Typography variant="h6">WEB DEVELOPER</Typography>
       <Grid container>
         <Grid item {...gridSize}>
-          <PersonalDetailsItem title="Birthday" content="20.07.1997" />
+          <PersonalDetailsItem
+            title="Birthday"
+            content={format(new Date(birthday), "dd MMMM yyyy")}
+          />
         </Grid>
         <Grid item {...gridSize}>
-          <PersonalDetailsItem title="Age" content="24" />
+          <PersonalDetailsItem
+            title="Age"
+            content={`${differenceInYears(new Date(), new Date(birthday))}`}
+          />
         </Grid>
         <Grid item {...gridSize}>
           <PersonalDetailsItem title="Website" content="jakub.bartosik.eu" />
