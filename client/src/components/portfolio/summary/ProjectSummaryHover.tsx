@@ -22,11 +22,13 @@ const HoverContainerStyled = styled.div<{
 export interface ProjectSummaryHoverProps {
   project: IProject;
   isHovered: boolean;
+  selectProject: () => void;
 }
 
 const ProjectSummaryHover: React.FC<ProjectSummaryHoverProps> = ({
   project,
   isHovered,
+  selectProject,
 }) => {
   const techStore = useContext(TechnologiesStoreContext);
   const frontendTech = techStore.getFrontend.filter((tech) =>
@@ -49,7 +51,11 @@ const ProjectSummaryHover: React.FC<ProjectSummaryHoverProps> = ({
           </Typography>
         </Grid>
         <Grid item>
-          <ProjectSummaryLinks gitHub={project.github} www={project.www} />
+          <ProjectSummaryLinks
+            gitHub={project.github}
+            www={project.www}
+            handleMore={selectProject}
+          />
         </Grid>
         <Grid item>
           <ProjectSummaryTechnologies technologies={frontendTech} />
