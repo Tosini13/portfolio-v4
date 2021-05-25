@@ -1,6 +1,7 @@
 import { Typography } from "@material-ui/core";
 import { format } from "date-fns";
 import styled from "styled-components";
+import { Experience } from "../../stores/TimeStore";
 import { mainTheme } from "../../styled/config";
 import { Bullet, TimeStampContainer } from "../layout/TimeLineWrapper";
 import { DatesTypography, FORMAT_DATE_EXP } from "./Experience";
@@ -13,19 +14,21 @@ const AStyled = styled.a`
   }
 `;
 
-export interface EducationProps {}
+export interface EducationProps {
+  education: Experience[];
+}
 
-const Education: React.FC<EducationProps> = () => {
+const Education: React.FC<EducationProps> = ({ education }) => {
   return (
     <>
-      {educations.map((education) => (
-        <TimeStampContainer key={education.title}>
-          <Bullet>{education.title}</Bullet>
+      {education.map((edu) => (
+        <TimeStampContainer key={edu.title}>
+          <Bullet>{edu.title}</Bullet>
           <DatesTypography>
-            {format(new Date(education.fromDate), FORMAT_DATE_EXP)} -{" "}
-            {format(new Date(education.toDate), FORMAT_DATE_EXP)}
+            {format(new Date(edu.fromDate), FORMAT_DATE_EXP)} -{" "}
+            {format(new Date(edu.toDate), FORMAT_DATE_EXP)}
           </DatesTypography>
-          <Typography>{education.description}</Typography>
+          <Typography>{edu.description}</Typography>
         </TimeStampContainer>
       ))}
       <TimeStampContainer>
@@ -53,25 +56,3 @@ const Education: React.FC<EducationProps> = () => {
 };
 
 export default Education;
-
-type TEducation = {
-  title: string;
-  fromDate: string;
-  toDate: string;
-  description: string;
-};
-
-const educations: TEducation[] = [
-  {
-    title: "West Pomeranian University of Technology in Szczecin",
-    fromDate: "2016/09/01",
-    toDate: "2020/09/01",
-    description: "Studied in Szczecin in Poland Computer Science",
-  },
-  {
-    title: "PA College, Larnaca, Cyprus",
-    fromDate: "2018/09/01",
-    toDate: "2019/05/23",
-    description: "Studied Computer Science within Erasmus Programme",
-  },
-];

@@ -1,9 +1,12 @@
+import { useContext } from "react";
+import { observer } from "mobx-react";
 import { Grid, GridSize, Typography } from "@material-ui/core";
+import { TimeStoreContext } from "../../stores/TimeStore";
 import { SectionHeader, SectionWrapper } from "../layout/SectionWrapper";
 import TimeLineWrapper from "../layout/TimeLineWrapper";
 import { E_ROUTES } from "../menu/useRoutes";
 import Education from "./Education";
-import Experience from "./Experience";
+import ExperienceComponent from "./Experience";
 import Summary from "./Summary";
 
 const gridSize = {
@@ -13,7 +16,8 @@ const gridSize = {
 
 export interface ResumeProps {}
 
-const Resume: React.SFC<ResumeProps> = () => {
+const Resume: React.FC<ResumeProps> = observer(() => {
+  const timeStore = useContext(TimeStoreContext);
   return (
     <SectionWrapper id={E_ROUTES.resume}>
       <SectionHeader>Resume</SectionHeader>
@@ -25,18 +29,18 @@ const Resume: React.SFC<ResumeProps> = () => {
           </TimeLineWrapper>
           <Typography>Education</Typography>
           <TimeLineWrapper>
-            <Education />
+            <Education education={timeStore.getEducation} />
           </TimeLineWrapper>
         </Grid>
         <Grid item xs={gridSize.xs} sm={gridSize.sm}>
           <Typography>Professional Experience</Typography>
           <TimeLineWrapper>
-            <Experience />
+            <ExperienceComponent jobs={timeStore.getJobs} />
           </TimeLineWrapper>
         </Grid>
       </Grid>
     </SectionWrapper>
   );
-};
+});
 
 export default Resume;

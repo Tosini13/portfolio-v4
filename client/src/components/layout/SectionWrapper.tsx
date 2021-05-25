@@ -22,6 +22,7 @@ export const SectionWrapper = styled.section<{
   background?: E_SECTION_BACKGROUND;
 }>`
   padding: 10px 5px;
+  overflow: hidden;
   min-height: 100vh;
   ${(props) => getBackground(props?.background)}
 `;

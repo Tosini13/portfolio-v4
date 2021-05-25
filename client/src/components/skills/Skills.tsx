@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { Grid, GridSize, Paper } from "@material-ui/core";
 import styled from "styled-components";
 import SkillSummary from "./SkillSummary";
@@ -7,8 +8,7 @@ import {
   SectionWrapper,
 } from "../layout/SectionWrapper";
 import { mainTheme } from "../../styled/config";
-import mockTechnologies from "./mockSkills";
-import { ETechnologyField } from "../../models/technology";
+import { TechnologiesStoreContext } from "../../stores/TechnologiesStore";
 
 const gridSizeSkills = {
   lg: 5 as GridSize,
@@ -47,6 +47,7 @@ const BoxBackendTitle = styled(BoxTitle)`
 export interface SkillsProps {}
 
 const Skills: React.FC<SkillsProps> = () => {
+  const techStore = useContext(TechnologiesStoreContext);
   return (
     <SectionWrapper background={E_SECTION_BACKGROUND.ODD}>
       <SectionHeader>Skills</SectionHeader>
@@ -56,16 +57,14 @@ const Skills: React.FC<SkillsProps> = () => {
             <FrontendBox variant="elevation">
               <BoxTitle>FrontEnd</BoxTitle>
               <Grid container spacing={1} justify="space-evenly">
-                {mockTechnologies
-                  .filter((tech) => tech.field === ETechnologyField.FRONTEND)
-                  .map((technology) => (
-                    <Grid item {...gridSizeSkills} key={technology.id}>
-                      <SkillSummary
-                        logoSrc={technology.logoSrc}
-                        title={technology.title}
-                      />
-                    </Grid>
-                  ))}
+                {techStore.getFrontend.map((technology) => (
+                  <Grid item {...gridSizeSkills} key={technology.id}>
+                    <SkillSummary
+                      logoSrc={technology.logoSrc}
+                      title={technology.title}
+                    />
+                  </Grid>
+                ))}
               </Grid>
             </FrontendBox>
           </Grid>
@@ -73,31 +72,27 @@ const Skills: React.FC<SkillsProps> = () => {
             <BackendBox variant="elevation" style={{ marginBottom: "25px" }}>
               <BoxBackendTitle>BackEnd</BoxBackendTitle>
               <Grid container spacing={1} justify="space-evenly">
-                {mockTechnologies
-                  .filter((tech) => tech.field === ETechnologyField.BACKEND)
-                  .map((technology) => (
-                    <Grid item {...gridSizeSkills} key={technology.id}>
-                      <SkillSummary
-                        logoSrc={technology.logoSrc}
-                        title={technology.title}
-                      />
-                    </Grid>
-                  ))}
+                {techStore.getBackend.map((technology) => (
+                  <Grid item {...gridSizeSkills} key={technology.id}>
+                    <SkillSummary
+                      logoSrc={technology.logoSrc}
+                      title={technology.title}
+                    />
+                  </Grid>
+                ))}
               </Grid>
             </BackendBox>
             <BackendBox variant="elevation">
               <BoxBackendTitle>Tools</BoxBackendTitle>
               <Grid container spacing={1} justify="space-evenly">
-                {mockTechnologies
-                  .filter((tech) => tech.field === ETechnologyField.TOOLS)
-                  .map((technology) => (
-                    <Grid item {...gridSizeSkills} key={technology.id}>
-                      <SkillSummary
-                        logoSrc={technology.logoSrc}
-                        title={technology.title}
-                      />
-                    </Grid>
-                  ))}
+                {techStore.getTools.map((technology) => (
+                  <Grid item {...gridSizeSkills} key={technology.id}>
+                    <SkillSummary
+                      logoSrc={technology.logoSrc}
+                      title={technology.title}
+                    />
+                  </Grid>
+                ))}
               </Grid>
             </BackendBox>
           </Grid>
