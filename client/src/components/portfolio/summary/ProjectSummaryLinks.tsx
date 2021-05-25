@@ -12,13 +12,7 @@ const ProjectSummaryLinks: React.SFC<ProjectSummaryLinksProps> = ({
   www,
 }) => {
   return (
-    <Grid
-      container
-      alignItems="center"
-      justify="center"
-      spacing={3}
-      style={{ marginTop: "20px" }}
-    >
+    <Grid container alignItems="center" justify="center" spacing={3}>
       {www ? (
         <Grid item>
           <a href={www} target="_blank" rel="noreferrer">
