@@ -29,7 +29,15 @@ const ProjectSummaryHover: React.FC<ProjectSummaryHoverProps> = ({
   isHovered,
 }) => {
   const techStore = useContext(TechnologiesStoreContext);
-  const frontendTech = techStore.technologies.filter((tech) =>
+  const frontendTech = techStore.getFrontend.filter((tech) =>
+    project.technologies?.includes(tech.id)
+  );
+
+  const backendTech = techStore.getBackend.filter((tech) =>
+    project.technologies?.includes(tech.id)
+  );
+
+  const toolsTech = techStore.getTools.filter((tech) =>
     project.technologies?.includes(tech.id)
   );
   return (
@@ -45,6 +53,12 @@ const ProjectSummaryHover: React.FC<ProjectSummaryHoverProps> = ({
         </Grid>
         <Grid item>
           <ProjectSummaryTechnologies technologies={frontendTech} />
+        </Grid>
+        <Grid item>
+          <ProjectSummaryTechnologies technologies={backendTech} />
+        </Grid>
+        <Grid item>
+          <ProjectSummaryTechnologies technologies={toolsTech} />
         </Grid>
       </Grid>
     </HoverContainerStyled>

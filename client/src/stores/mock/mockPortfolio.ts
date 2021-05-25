@@ -13,7 +13,7 @@ export const mockPortfolio: IProject[] = [
     github: "https://github.com/Tosini13/champions_youth",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    technologies: ["1", "2", "3", "4", "5", "7", "8", "10"],
+    technologies: ["1", "2", "3", "4", "5", "7", "8", "10", "13", "18", "19"],
   },
   {
     id: "2",
@@ -23,6 +23,20 @@ export const mockPortfolio: IProject[] = [
     github: "https://github.com/Tosini13/pallotyni-production",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    technologies: [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "7",
+      "9",
+      "10",
+      "12",
+      "17",
+      "18",
+      "19",
+    ],
   },
   {
     id: "3",
@@ -32,6 +46,7 @@ export const mockPortfolio: IProject[] = [
     github: "https://github.com/Tosini13/medline",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    technologies: ["1", "2", "3", "4", "5", "7", "8", "13", "19"],
   },
   {
     id: "4",
@@ -41,5 +56,6 @@ export const mockPortfolio: IProject[] = [
     github: "https://github.com/Tosini13/portfolio-v4",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    technologies: ["1", "2", "3", "4", "5", "7", "9", "10", "12", "17", "19"],
   },
 ];

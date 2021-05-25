@@ -18,6 +18,7 @@ import SQL from "../../images/technologies/sql.webp";
 import JIRA from "../../images/technologies/jira.png";
 import NODE_JS from "../../images/technologies/nodeJs.png";
 import GRAPH_QL from "../../images/technologies/GraphQL_Logo.png";
+import MONGO_DB from "../../images/technologies/mongoDB.png";
 import { ETechnologyField, ITechnology } from "../../models/technology";
 
 type MockTechnology = Omit<ITechnology, "id" | "field">;
@@ -70,6 +71,7 @@ const frontEndTechnologies: MockTechnology[] = [
 ];
 
 const backEndTechnologies: MockTechnology[] = [
+  // 12
   {
     logoSrc: NODE_JS,
     title: "Node.js",
@@ -90,9 +92,14 @@ const backEndTechnologies: MockTechnology[] = [
     logoSrc: GRAPH_QL,
     title: "Graph QL",
   },
+  {
+    logoSrc: MONGO_DB,
+    title: "Mongo DB",
+  },
 ];
 
 const tools: MockTechnology[] = [
+  // 18
   {
     logoSrc: FIGMA,
     title: "Figma",
