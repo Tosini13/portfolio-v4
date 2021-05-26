@@ -1,28 +1,16 @@
 import { Grid, Tooltip } from "@material-ui/core";
-import { useContext } from "react";
-import { Id } from "../../../models/general";
-import { TechnologiesStoreContext } from "../../../stores/TechnologiesStore";
+import { Technology } from "../../../stores/TechnologiesStore";
 import { SkillLogoStyled } from "../../skills/SkillSummary";
 
 export interface ProjectSummaryTechnologiesProps {
-  technologiesId: Id[];
+  technologies: Technology[];
 }
 
 const ProjectSummaryTechnologies: React.FC<ProjectSummaryTechnologiesProps> = ({
-  technologiesId,
+  technologies,
 }) => {
-  const techStore = useContext(TechnologiesStoreContext);
-  const technologies = techStore.technologies.filter((tech) =>
-    technologiesId.includes(tech.id)
-  );
   return (
-    <Grid
-      container
-      alignItems="center"
-      justify="center"
-      spacing={2}
-      style={{ marginTop: "20px" }}
-    >
+    <Grid container alignItems="center" justify="center" spacing={2}>
       {technologies?.map((tech) => {
         return (
           <Tooltip title={tech.title} key={tech.id}>

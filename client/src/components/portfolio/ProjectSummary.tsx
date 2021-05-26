@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { Paper } from "@material-ui/core";
+import { Hidden, Paper } from "@material-ui/core";
 import ProjectSummaryHover from "./summary/ProjectSummaryHover";
 import { IProject } from "../../models/project";
 
@@ -18,18 +18,35 @@ const ProjectImgStyled = styled.img`
 
 export interface ProjectSummaryProps {
   project: IProject;
+  selectProject: () => void;
 }
 
-const ProjectSummary: React.FC<ProjectSummaryProps> = ({ project }) => {
+const ProjectSummary: React.FC<ProjectSummaryProps> = ({
+  project,
+  selectProject,
+}) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   return (
-    <PaperStyled
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <ProjectImgStyled src={project.logoSrc} alt={project.title} />
-      <ProjectSummaryHover isHovered={isHovered} project={project} />
-    </PaperStyled>
+    <>
+      <Hidden smDown>
+        <PaperStyled
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <ProjectImgStyled src={project.logoSrc} alt={project.title} />
+          <ProjectSummaryHover
+            isHovered={isHovered}
+            project={project}
+            selectProject={selectProject}
+          />
+        </PaperStyled>
+      </Hidden>
+      <Hidden mdUp>
+        <PaperStyled onClick={selectProject}>
+          <ProjectImgStyled src={project.logoSrc} alt={project.title} />
+        </PaperStyled>
+      </Hidden>
+    </>
   );
 };
 

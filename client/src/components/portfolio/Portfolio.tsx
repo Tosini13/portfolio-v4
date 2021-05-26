@@ -1,24 +1,34 @@
+import { useContext, useState } from "react";
 import { Grid } from "@material-ui/core";
-import { useContext } from "react";
-import { ProjectsStoreContext } from "../../stores/ProjectsStore";
+import { Project, ProjectsStoreContext } from "../../stores/ProjectsStore";
 import { SectionHeader, SectionWrapper } from "../layout/SectionWrapper";
 import { E_ROUTES } from "../menu/useRoutes";
+import ProjectDetails from "./details/ProjectDetails";
 import ProjectSummary from "./ProjectSummary";
 
 export interface PortfolioProps {}
 
 const Portfolio: React.FC<PortfolioProps> = () => {
   const projectsStore = useContext(ProjectsStoreContext);
+  const [selectedProject, setSelectedProject] = useState<Project | undefined>();
   return (
     <SectionWrapper id={E_ROUTES.portfolio}>
       <SectionHeader>Portfolio</SectionHeader>
       <Grid container justify="space-evenly" spacing={3}>
         {projectsStore.projects.map((project) => (
           <Grid item key={project.id}>
-            <ProjectSummary project={project} />
+            <ProjectSummary
+              project={project}
+              selectProject={() => setSelectedProject(project)}
+            />
           </Grid>
         ))}
       </Grid>
+      <ProjectDetails
+        open={Boolean(selectedProject)}
+        handleClose={() => setSelectedProject(undefined)}
+        project={selectedProject}
+      />
     </SectionWrapper>
   );
 };

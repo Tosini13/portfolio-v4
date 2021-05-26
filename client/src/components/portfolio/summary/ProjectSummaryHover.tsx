@@ -1,6 +1,8 @@
-import { Typography } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
+import { useContext } from "react";
 import styled from "styled-components";
 import { IProject } from "../../../models/project";
+import { TechnologiesStoreContext } from "../../../stores/TechnologiesStore";
 import ProjectSummaryLinks from "./ProjectSummaryLinks";
 import ProjectSummaryTechnologies from "./ProjectSummaryTechnologies";
 
@@ -20,24 +22,51 @@ const HoverContainerStyled = styled.div<{
 export interface ProjectSummaryHoverProps {
   project: IProject;
   isHovered: boolean;
+  selectProject: () => void;
 }
 
 const ProjectSummaryHover: React.FC<ProjectSummaryHoverProps> = ({
   project,
   isHovered,
+  selectProject,
 }) => {
+  const techStore = useContext(TechnologiesStoreContext);
+  const frontendTech = techStore.getFrontend.filter((tech) =>
+    project.technologies?.includes(tech.id)
+  );
+
+  const backendTech = techStore.getBackend.filter((tech) =>
+    project.technologies?.includes(tech.id)
+  );
+
+  const toolsTech = techStore.getTools.filter((tech) =>
+    project.technologies?.includes(tech.id)
+  );
   return (
     <HoverContainerStyled ishovered={isHovered}>
-      <Typography
-        color="textSecondary"
-        align="center"
-        variant="h6"
-        style={{ marginTop: "20px" }}
-      >
-        {project.title}
-      </Typography>
-      <ProjectSummaryLinks gitHub={project.github} www={project.www} />
-      <ProjectSummaryTechnologies technologiesId={project.technologies ?? []} />
+      <Grid container direction="column" spacing={1}>
+        <Grid item>
+          <Typography color="textSecondary" align="center" variant="h6">
+            {project.title}
+          </Typography>
+        </Grid>
+        <Grid item>
+          <ProjectSummaryLinks
+            gitHub={project.github}
+            www={project.www}
+            handleMore={selectProject}
+          />
+        </Grid>
+        <Grid item>
+          <ProjectSummaryTechnologies technologies={frontendTech} />
+        </Grid>
+        <Grid item>
+          <ProjectSummaryTechnologies technologies={backendTech} />
+        </Grid>
+        <Grid item>
+          <ProjectSummaryTechnologies technologies={toolsTech} />
+        </Grid>
+      </Grid>
     </HoverContainerStyled>
   );
 };

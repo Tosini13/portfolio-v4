@@ -1,24 +1,21 @@
 import { Grid, IconButton } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LaunchIcon from "@material-ui/icons/Launch";
+import UnfoldMoreIcon from "@material-ui/icons/UnfoldMore";
 
 export interface ProjectSummaryLinksProps {
   gitHub?: string;
   www?: string;
+  handleMore?: () => void;
 }
 
 const ProjectSummaryLinks: React.SFC<ProjectSummaryLinksProps> = ({
   gitHub,
   www,
+  handleMore,
 }) => {
   return (
-    <Grid
-      container
-      alignItems="center"
-      justify="center"
-      spacing={3}
-      style={{ marginTop: "20px" }}
-    >
+    <Grid container alignItems="center" justify="center" spacing={3}>
       {www ? (
         <Grid item>
           <a href={www} target="_blank" rel="noreferrer">
@@ -35,6 +32,13 @@ const ProjectSummaryLinks: React.SFC<ProjectSummaryLinksProps> = ({
               <GitHubIcon />
             </IconButton>
           </a>
+        </Grid>
+      ) : null}
+      {handleMore ? (
+        <Grid item>
+          <IconButton color="primary" onClick={handleMore}>
+            <UnfoldMoreIcon />
+          </IconButton>
         </Grid>
       ) : null}
     </Grid>
