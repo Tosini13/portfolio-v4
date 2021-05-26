@@ -39,7 +39,7 @@ export type TProject = {
 };
 
 export type TProjectRes = TProject & {
-  id: string;
+  id: Id;
 };
 
 export interface IProject extends Document {
