@@ -2,7 +2,7 @@ import { format } from "date-fns";
 
 import { Typography } from "@material-ui/core";
 
-import { SectionHeader, SectionWrapper } from "../layout/SectionWrapper";
+import { SectionTitle, SectionWrapper } from "../layout/SectionWrapper";
 import TimeLineWrapper, {
   Bullet,
   TimeStampContainer,
@@ -14,7 +14,7 @@ export interface PerfectionProps {}
 const Perfection: React.FC<PerfectionProps> = () => {
   return (
     <SectionWrapper>
-      <SectionHeader>Obsession for Perfection</SectionHeader>
+      <SectionTitle>Obsession for Perfection</SectionTitle>
       <Typography>
         What am I learning about and when I do it with description
       </Typography>

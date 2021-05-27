@@ -1,6 +1,7 @@
-import { Typography, TypographyProps } from "@material-ui/core";
+import { Grid, Typography, TypographyProps } from "@material-ui/core";
 import styled from "styled-components";
 import { mainTheme } from "../../styled/config";
+import Actions, { TActionsProps } from "./Actions";
 
 export enum E_SECTION_BACKGROUND {
   "ODD" = "ODD",
@@ -27,7 +28,7 @@ export const SectionWrapper = styled.section<{
   ${(props) => getBackground(props?.background)}
 `;
 
-const SectionHeaderStyled = styled(Typography)`
+const SectionTitleStyled = styled(Typography)`
   position: relative;
   color: black;
   width: fit-content;
@@ -44,10 +45,35 @@ const SectionHeaderStyled = styled(Typography)`
   }
 `;
 
-export const SectionHeader: React.FC<TypographyProps> = ({ children }) => {
+export const SectionTitle: React.FC<TypographyProps> = ({ children }) => {
   return (
-    <SectionHeaderStyled color="primary" variant="h5">
+    <SectionTitleStyled color="primary" variant="h5">
       {children}
-    </SectionHeaderStyled>
+    </SectionTitleStyled>
+  );
+};
+
+const SectionHeaderGridStyled = styled(Grid)`
+  position: relative;
+`;
+
+export type TSectionHeaderProps = TActionsProps & {
+  isInAction: boolean;
+};
+
+export const SectionHeader: React.FC<TSectionHeaderProps> = ({
+  children,
+  isInAction,
+  ...actionProps
+}) => {
+  return (
+    <SectionHeaderGridStyled container alignItems="center" spacing={2}>
+      <Grid item>{children}</Grid>
+      {isInAction && (
+        <Grid item>
+          <Actions {...actionProps} />
+        </Grid>
+      )}
+    </SectionHeaderGridStyled>
   );
 };

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { observer } from "mobx-react";
 import { Grid, GridSize, Typography } from "@material-ui/core";
 import { TimeStoreContext } from "../../stores/TimeStore";
-import { SectionHeader, SectionWrapper } from "../layout/SectionWrapper";
+import { SectionTitle, SectionWrapper } from "../layout/SectionWrapper";
 import TimeLineWrapper from "../layout/TimeLineWrapper";
 import { E_ROUTES } from "../menu/useRoutes";
 import Education from "./Education";
@@ -20,7 +20,7 @@ const Resume: React.FC<ResumeProps> = observer(() => {
   const timeStore = useContext(TimeStoreContext);
   return (
     <SectionWrapper id={E_ROUTES.resume}>
-      <SectionHeader>Resume</SectionHeader>
+      <SectionTitle>Resume</SectionTitle>
       <Grid container spacing={1} justify="space-evenly">
         <Grid item xs={gridSize.xs} sm={gridSize.sm}>
           <Typography>Summary</Typography>

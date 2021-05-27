@@ -12,3 +12,5 @@ export interface ITechnology {
   title: string;
   field: ETechnologyField;
 }
+
+export type TCreateTechnology = Omit<ITechnology, "id">;
