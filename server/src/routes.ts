@@ -1,5 +1,11 @@
 import express from "express";
 import {
+  createExperience,
+  deleteExperience,
+  getExperiences,
+  updateExperience,
+} from "./controllers/experience";
+import {
   createProject,
   deleteProject,
   getProjects,
@@ -27,5 +33,12 @@ router.get("/technologies", getTechnologies);
 router.post("/technologies", createTechnology);
 router.put("/technologies/:id", updateTechnology);
 router.delete("/technologies/:id", deleteTechnology);
+
+// -----------------------------------------
+// EXPERIENCES
+router.get("/experiences", getExperiences);
+router.post("/experiences", createExperience);
+router.put("/experiences/:id", updateExperience);
+router.delete("/experiences/:id", deleteExperience);
 
 export default router;
