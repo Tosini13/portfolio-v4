@@ -16,6 +16,7 @@ import {
 } from "../../stores/TechnologiesStore";
 import TechnologyForm from "./form/TechnologyForm";
 import useFormManager from "../../hooks/useFormManager";
+import DeleteForm from "../forms/DeleteForm";
 
 const gridSizeSkills = {
   lg: 5 as GridSize,
@@ -56,6 +57,7 @@ export interface SkillsProps {}
 const Skills: React.FC<SkillsProps> = observer(() => {
   const techStore = useContext(TechnologiesStoreContext);
   const {
+    isDelete,
     isFormOpened,
     handleCreate,
     handleEdit,
@@ -147,6 +149,12 @@ const Skills: React.FC<SkillsProps> = observer(() => {
         open={isFormOpened}
         handleClose={handleCancel}
         selectedTechnology={selected}
+      />
+      <DeleteForm
+        open={Boolean(isDelete && selected)}
+        deleteTitleItem={selected?.title ?? ""}
+        handleDelete={() => techStore.deleteTechnology(selected?.id ?? "")}
+        callbackSuccess={handleCancel}
       />
     </SectionWrapper>
   );

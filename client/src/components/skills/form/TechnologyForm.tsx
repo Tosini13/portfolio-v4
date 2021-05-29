@@ -44,7 +44,6 @@ const TechnologyForm: React.FC<TechnologyFormProps> = ({
   };
 
   const executeSubmit = async (data: TTechForm) => {
-    console.log("data", data);
     if (selectedTechnology) {
       const uploadedLogoSrc = "no_logo"; // TODO: add upload img method
       try {
