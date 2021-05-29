@@ -40,7 +40,8 @@ export const uploadImage = async (req: Request, res: Response) => {
 };
 
 export const updateImage = async (req: Request, res: Response) => {
-  const key = req.body.deleteImage?.split(AWS_GALLERY_ROOT)[1];
+  const oldPath = req?.query?.path as string | undefined;
+  const key = oldPath?.split(AWS_GALLERY_ROOT)[1];
   if (key) {
     await deleteImageAWS({ key });
   }
