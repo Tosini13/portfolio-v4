@@ -2,7 +2,10 @@ import { CircularProgress, Dialog, DialogProps } from "@material-ui/core";
 import styled from "styled-components";
 
 const DialogStyled = styled(Dialog)`
-  position: relative;
+  .MuiDialog-paper {
+    position: relative;
+    overflow: hidden;
+  }
 `;
 
 export type DialogRCProps = DialogProps & { isProcessing?: boolean };
@@ -28,4 +31,4 @@ const CircularProgressStyled = styled(CircularProgress)`
   left: 5px;
 `;
 
-const Processing = () => <CircularProgressStyled />;
+const Processing = () => <CircularProgressStyled color="secondary" />;
