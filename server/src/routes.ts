@@ -6,6 +6,12 @@ import {
   updateExperience,
 } from "./controllers/experience";
 import {
+  deleteImage,
+  multerConfig,
+  updateImage,
+  uploadImage,
+} from "./controllers/images";
+import {
   createProject,
   deleteProject,
   getProjects,
@@ -40,5 +46,11 @@ router.get("/experiences", getExperiences);
 router.post("/experiences", createExperience);
 router.put("/experiences/:id", updateExperience);
 router.delete("/experiences/:id", deleteExperience);
+
+// -----------------------------------------
+// IMAGES
+router.post("/images", multerConfig.single("img"), uploadImage);
+router.put("/images", multerConfig.single("img"), updateImage);
+router.delete("/images", deleteImage);
 
 export default router;

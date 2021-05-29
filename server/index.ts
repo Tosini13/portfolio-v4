@@ -1,12 +1,16 @@
 import express from "express";
+import AWS from "aws-sdk";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import path from "path";
 import router from "./src/routes";
+import { initNodeGallery } from "./src/controllers/images";
 
 require("dotenv").config();
 
 const app = express();
+
+initNodeGallery();
 
 // ########### CONNECTIONS ############
 // -------- MONGODB -------
@@ -21,6 +25,15 @@ mongoose.connect(
 );
 
 mongoose.Promise = global.Promise;
+
+// -------- AWS -------
+
+const AWS_CREDENTIALS = {
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SERCRET_ACCESS_KEY,
+};
+
+export const s3 = new AWS.S3(AWS_CREDENTIALS);
 
 // MIDDLEWARE
 
