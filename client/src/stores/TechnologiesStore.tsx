@@ -1,8 +1,13 @@
 import { createContext } from "react";
-import { observable, makeObservable, computed } from "mobx";
+import { observable, makeObservable, computed, action } from "mobx";
 import { Id } from "../models/general";
-import mockTechnologies from "./mock/mockSkills";
-import { ETechnologyField, ITechnology } from "../models/technology";
+import {
+  ETechnologyField,
+  ITechnology,
+  TCreateTechnology,
+} from "../models/technology";
+import axios from "axios";
+import { technologiesIdUrl, TECHNOLOGIES_API_URL } from "../models/const";
 
 export class Technology implements ITechnology {
   id: Id;
@@ -49,15 +54,42 @@ export class TechnologiesStore {
     );
   }
 
+  async fetch() {
+    const res = await axios.get<ITechnology[]>(TECHNOLOGIES_API_URL);
+    this.technologies = res.data.map((techData) => new Technology(techData));
+  }
+
+  async createTechnology(tech: TCreateTechnology) {
+    const res = await axios.post<ITechnology>(TECHNOLOGIES_API_URL, tech);
+    this.technologies = [...this.technologies, new Technology(res.data)];
+  }
+
+  async updateTechnology({ id, ...tech }: ITechnology) {
+    const res = await axios.put<ITechnology>(technologiesIdUrl(id), tech);
+    this.technologies = this.technologies.map((tech) =>
+      tech.id === res.data.id ? new Technology(res.data) : tech
+    );
+  }
+
+  async deleteTechnology(techId: Id) {
+    const res = await axios.delete<ITechnology>(technologiesIdUrl(techId));
+    this.technologies = this.technologies.filter(
+      (tech) => tech.id !== res.data.id
+    );
+  }
+
   constructor() {
     makeObservable(this, {
       technologies: observable,
       getFrontend: computed,
       getBackend: computed,
       getTools: computed,
+      fetch: action,
+      createTechnology: action,
+      updateTechnology: action,
+      deleteTechnology: action,
     });
-
-    this.technologies = mockTechnologies.map((tech) => new Technology(tech));
+    this.fetch();
   }
 }
 

@@ -19,6 +19,7 @@ import JIRA from "../../images/technologies/jira.png";
 import NODE_JS from "../../images/technologies/nodeJs.png";
 import GRAPH_QL from "../../images/technologies/GraphQL_Logo.png";
 import MONGO_DB from "../../images/technologies/mongoDB.png";
+import POSTMAN from "../../images/technologies/postman.png";
 import { ETechnologyField, ITechnology } from "../../models/technology";
 
 type MockTechnology = Omit<ITechnology, "id" | "field">;
@@ -115,6 +116,10 @@ const tools: MockTechnology[] = [
   {
     logoSrc: JIRA,
     title: "Jira",
+  },
+  {
+    logoSrc: POSTMAN,
+    title: "Postman",
   },
 ];
 

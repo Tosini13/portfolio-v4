@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@material-ui/core";
 import {
   E_SECTION_BACKGROUND,
-  SectionHeader,
+  SectionTitle,
   SectionWrapper,
 } from "../layout/SectionWrapper";
 import PersonalDetails from "./PersonalDetails";
@@ -19,7 +19,7 @@ export interface AboutProps {}
 const About: React.FC<AboutProps> = () => {
   return (
     <SectionWrapper background={E_SECTION_BACKGROUND.EVEN} id={E_ROUTES.about}>
-      <SectionHeader>About</SectionHeader>
+      <SectionTitle>About</SectionTitle>
       <Grid container justify="space-evenly">
         <Grid item sm={12} md={3} style={{ textAlign: "center" }}>
           <ImgStyled src={MyImage} alt="me" />
