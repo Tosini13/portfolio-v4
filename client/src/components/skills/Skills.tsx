@@ -18,6 +18,7 @@ import TechnologyForm from "./form/TechnologyForm";
 import useFormManager from "../../hooks/useFormManager";
 import DeleteForm from "../forms/DeleteForm";
 import { deleteImage } from "../../stores/actions/resources";
+import { E_ROUTES } from "../menu/useRoutes";
 
 const gridSizeSkills = {
   lg: 5 as GridSize,
@@ -85,7 +86,7 @@ const Skills: React.FC<SkillsProps> = observer(() => {
 
   const isAdmin = true; // TODO: auth
   return (
-    <SectionWrapper background={E_SECTION_BACKGROUND.ODD}>
+    <SectionWrapper background={E_SECTION_BACKGROUND.ODD} id={E_ROUTES.skills}>
       <SectionHeader
         isInAction={isAdmin}
         handleCreate={handleCreate}
