@@ -4,16 +4,15 @@ import { Hidden, Paper } from "@material-ui/core";
 import ProjectSummaryHover from "./summary/ProjectSummaryHover";
 import { IProject } from "../../models/project";
 
-const PaperStyled = styled(Paper)`
+const PaperStyled = styled(Paper)<{
+  imgSrc: string;
+}>`
   position: relative;
-  width: 500px;
-  @media only screen and (max-width: 550px) {
-    width: 300px;
-  }
-`;
-
-const ProjectImgStyled = styled.img`
-  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(${(props) => props.imgSrc});
 `;
 
 export interface ProjectSummaryProps {
@@ -32,8 +31,8 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = ({
         <PaperStyled
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
+          imgSrc={project.logoSrc}
         >
-          <ProjectImgStyled src={project.logoSrc} alt={project.title} />
           <ProjectSummaryHover
             isHovered={isHovered}
             project={project}
@@ -42,9 +41,10 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = ({
         </PaperStyled>
       </Hidden>
       <Hidden mdUp>
-        <PaperStyled onClick={selectProject}>
-          <ProjectImgStyled src={project.logoSrc} alt={project.title} />
-        </PaperStyled>
+        <PaperStyled
+          onClick={selectProject}
+          imgSrc={project.logoSrc}
+        ></PaperStyled>
       </Hidden>
     </>
   );

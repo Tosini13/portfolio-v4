@@ -1,8 +1,9 @@
 import { createContext } from "react";
-import { observable, makeObservable } from "mobx";
-import { IProject } from "../models/project";
+import { observable, makeObservable, action } from "mobx";
+import { IProject, TCreateProject } from "../models/project";
 import { Id } from "../models/general";
-import { mockPortfolio } from "./mock/mockPortfolio";
+import axios from "axios";
+import { projectsIdUrl, PROJECTS_API_URL } from "../models/const";
 
 export class Project implements IProject {
   id: Id;
@@ -40,12 +41,37 @@ export class ProjectsStore {
     return this.projects;
   }
 
+  async fetch() {
+    const res = await axios.get<IProject[]>(PROJECTS_API_URL);
+    this.projects = res.data.map((techData) => new Project(techData));
+  }
+
+  async createProject(tech: TCreateProject) {
+    const res = await axios.post<IProject>(PROJECTS_API_URL, tech);
+    this.projects = [...this.projects, new Project(res.data)];
+  }
+
+  async updateProject({ id, ...tech }: IProject) {
+    const res = await axios.put<IProject>(projectsIdUrl(id), tech);
+    this.projects = this.projects.map((tech) =>
+      tech.id === res.data.id ? new Project(res.data) : tech
+    );
+  }
+
+  async deleteProject(techId: Id) {
+    const res = await axios.delete<IProject>(projectsIdUrl(techId));
+    this.projects = this.projects.filter((tech) => tech.id !== res.data.id);
+  }
+
   constructor() {
     makeObservable(this, {
       projects: observable,
+      fetch: action,
+      createProject: action,
+      updateProject: action,
+      deleteProject: action,
     });
-
-    this.projects = mockPortfolio.map((project) => new Project(project));
+    this.fetch();
   }
 }
 

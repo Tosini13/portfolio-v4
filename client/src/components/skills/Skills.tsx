@@ -72,8 +72,6 @@ const Skills: React.FC<SkillsProps> = observer(() => {
     techStore.fetch();
   }, [techStore]);
 
-  const isAdmin = true; // TODO: auth
-
   const handleDeleteTech = async () => {
     if (selected) {
       await techStore.deleteTechnology(selected?.id ?? "");
@@ -84,6 +82,8 @@ const Skills: React.FC<SkillsProps> = observer(() => {
   const frontEnd = techStore.getFrontend;
   const backEnd = techStore.getBackend;
   const tools = techStore.getTools;
+
+  const isAdmin = true; // TODO: auth
   return (
     <SectionWrapper background={E_SECTION_BACKGROUND.ODD}>
       <SectionHeader

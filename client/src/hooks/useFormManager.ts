@@ -23,6 +23,7 @@ const useFormManager = <T>() => {
       (action === EAction.EDIT && selected !== undefined),
     isEdit: action === EAction.EDIT,
     isDelete: action === EAction.DELETE,
+    isCreate: action === EAction.CREATE,
     selected,
     setSelected,
   };

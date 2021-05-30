@@ -9,3 +9,5 @@ export interface IProject {
   github?: string;
   technologies?: Id[];
 }
+
+export type TCreateProject = Omit<IProject, "id">;
