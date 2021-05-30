@@ -1,5 +1,7 @@
 import { Id } from "./general";
 
+export const FORMAT_DATE = "yyyy/MM/dd";
+
 // ======================== URL ===========================
 const SERVER_URL = "";
 const API_URL = `${SERVER_URL}/api`;

@@ -1,8 +1,14 @@
 import { createContext } from "react";
-import { observable, makeObservable, computed } from "mobx";
+import axios from "axios";
+import { observable, makeObservable, computed, action } from "mobx";
 import { Id } from "../models/general";
-import { EExperienceType, IExperience, TEndDate } from "../models/experience";
-import { educations, experiences } from "./mock/mockExperience";
+import {
+  EExperienceType,
+  IExperience,
+  TCreateExperience,
+  TEndDate,
+} from "../models/experience";
+import { experiencesIdUrl, EXPERIENCES_API_URL } from "../models/const";
 
 export class Experience implements IExperience {
   id: Id;
@@ -49,17 +55,41 @@ export class TimeStore {
     );
   }
 
+  async fetch() {
+    const res = await axios.get<IExperience[]>(EXPERIENCES_API_URL);
+    this.experiences = res.data.map((techData) => new Experience(techData));
+  }
+
+  async createExperience(exp: TCreateExperience) {
+    const res = await axios.post<IExperience>(EXPERIENCES_API_URL, exp);
+    this.experiences = [...this.experiences, new Experience(res.data)];
+  }
+
+  async updateExperience({ id, ...exp }: IExperience) {
+    const res = await axios.put<IExperience>(experiencesIdUrl(id), exp);
+    this.experiences = this.experiences.map((tech) =>
+      tech.id === res.data.id ? new Experience(res.data) : tech
+    );
+  }
+
+  async deleteExperience(expId: Id) {
+    const res = await axios.delete<IExperience>(experiencesIdUrl(expId));
+    this.experiences = this.experiences.filter(
+      (tech) => tech.id !== res.data.id
+    );
+  }
+
   constructor() {
     makeObservable(this, {
       experiences: observable,
       getJobs: computed,
       getEducation: computed,
+      fetch: action,
+      createExperience: action,
+      updateExperience: action,
+      deleteExperience: action,
     });
-
-    this.experiences = [
-      ...educations.map((experience) => new Experience(experience)),
-      ...experiences.map((experience) => new Experience(experience)),
-    ];
+    this.fetch();
   }
 }
 

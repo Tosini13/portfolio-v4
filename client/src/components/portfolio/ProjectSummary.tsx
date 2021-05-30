@@ -5,14 +5,14 @@ import ProjectSummaryHover from "./summary/ProjectSummaryHover";
 import { IProject } from "../../models/project";
 
 const PaperStyled = styled(Paper)<{
-  imgSrc: string;
+  imgsrc: string;
 }>`
   position: relative;
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(${(props) => props.imgSrc});
+  background-image: url(${(props) => props.imgsrc});
 `;
 
 export interface ProjectSummaryProps {
@@ -31,7 +31,7 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = ({
         <PaperStyled
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          imgSrc={project.logoSrc}
+          imgsrc={project.logoSrc}
         >
           <ProjectSummaryHover
             isHovered={isHovered}
@@ -43,7 +43,7 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = ({
       <Hidden mdUp>
         <PaperStyled
           onClick={selectProject}
-          imgSrc={project.logoSrc}
+          imgsrc={project.logoSrc}
         ></PaperStyled>
       </Hidden>
     </>

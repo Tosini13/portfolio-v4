@@ -151,6 +151,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
             </Grid>
             <Grid item>
               <TextFieldRC
+                multiline
                 label="Description"
                 inputRef={descRef}
                 {...descProps}

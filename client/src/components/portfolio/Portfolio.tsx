@@ -47,6 +47,7 @@ const Portfolio: React.FC<PortfolioProps> = observer(() => {
     if (selected) {
       await projectsStore.deleteProject(selected?.id ?? "");
       await deleteImage(selected?.logoSrc);
+      handleCancel();
     }
   };
 

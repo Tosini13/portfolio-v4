@@ -7,7 +7,8 @@ import TimeLineWrapper, {
   Bullet,
   TimeStampContainer,
 } from "../layout/TimeLineWrapper";
-import { DatesTypography, FORMAT_DATE_EXP } from "../resume/Experience";
+import { DatesTypography } from "../resume/Experience";
+import { FORMAT_DATE_EXP } from "../../models/experience";
 
 export interface PerfectionProps {}
 
