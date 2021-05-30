@@ -14,3 +14,8 @@ export interface ITechnology {
 }
 
 export type TCreateTechnology = Omit<ITechnology, "id">;
+
+export type TTechGroup = {
+  field: ETechnologyField;
+  technologies: ITechnology[];
+};

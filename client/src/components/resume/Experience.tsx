@@ -1,10 +1,9 @@
 import { Typography } from "@material-ui/core";
-import { format, isSameMonth } from "date-fns";
+import { format, isSameMonth, isValid } from "date-fns";
 import styled from "styled-components";
+import { EEndDate, FORMAT_DATE_EXP, TEndDate } from "../../models/experience";
 import { Experience } from "../../stores/TimeStore";
 import { Bullet, TimeStampContainer } from "../layout/TimeLineWrapper";
-
-export const FORMAT_DATE_EXP = "yyyy/MM";
 
 export const DatesTypography = styled(Typography)`
   background-color: rgba(0, 0, 0, 0.3);
@@ -14,29 +13,40 @@ export const DatesTypography = styled(Typography)`
   font-weight: bold;
 `;
 
-const showToDate = (fromDate: string, toDate: string) => {
+const showToDate = (fromDate: string, toDate: TEndDate) => {
   if (isSameMonth(new Date(fromDate), new Date(toDate))) {
     return null;
   }
-  switch (toDate) {
-    case "present":
-      return "-" + toDate;
-    default:
-      return "-" + format(new Date(toDate), FORMAT_DATE_EXP);
+  if (toDate === EEndDate.PRESENT) {
+    return " - " + EEndDate.PRESENT;
   }
+  if (isValid(new Date(toDate))) {
+    return " - " + format(new Date(toDate), FORMAT_DATE_EXP);
+  }
+  return " - " + toDate;
 };
 
 export interface ExperienceProps {
   jobs: Experience[];
+  isSelectable: boolean;
+  setSelected: (exp: Experience | undefined) => void;
 }
 
-const ExperienceComponent: React.FC<ExperienceProps> = ({ jobs }) => {
+const ExperienceComponent: React.FC<ExperienceProps> = ({
+  jobs,
+  isSelectable,
+  setSelected,
+}) => {
   return (
     <>
       {jobs.map((exp) => (
-        <TimeStampContainer key={exp.institution}>
-          {/* key change to id */}
-          <Bullet>{exp.title}</Bullet>
+        <TimeStampContainer key={exp.id}>
+          <Bullet
+            isSelectable={isSelectable}
+            handleClick={() => setSelected(exp)}
+          >
+            {exp.title}
+          </Bullet>
           <Typography>{exp.institution}</Typography>
           <DatesTypography>
             {format(new Date(exp.fromDate), FORMAT_DATE_EXP)}

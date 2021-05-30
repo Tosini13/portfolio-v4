@@ -3,15 +3,17 @@ import { ReactElement } from "react";
 import {
   Home,
   PermIdentity,
+  Build,
+  Brush,
   Description,
-  MailOutline,
-  Camera,
-  CardTravel,
+  // MailOutline,
+  // CardTravel,
 } from "@material-ui/icons";
 
 export enum E_ROUTES {
   "home" = "/home",
   "about" = "/about",
+  "skills" = "/skills",
   "resume" = "/resume",
   "portfolio" = "/portfolio",
   "services" = "/services",
@@ -37,25 +39,30 @@ const useRoutes = () => {
       title: "about",
     },
     {
+      icon: <Build />,
+      path: E_ROUTES.skills,
+      title: "skills",
+    },
+    {
       icon: <Description />,
       path: E_ROUTES.resume,
       title: "resume",
     },
     {
-      icon: <Camera />,
+      icon: <Brush />,
       path: E_ROUTES.portfolio,
       title: "portfolio",
     },
-    {
-      icon: <CardTravel />,
-      path: E_ROUTES.services,
-      title: "services",
-    },
-    {
-      icon: <MailOutline />,
-      path: E_ROUTES.contact,
-      title: "contact",
-    },
+    // {
+    //   icon: <CardTravel />,
+    //   path: E_ROUTES.services,
+    //   title: "services",
+    // },
+    // {
+    //   icon: <MailOutline />,
+    //   path: E_ROUTES.contact,
+    //   title: "contact",
+    // },
   ];
 
   return {

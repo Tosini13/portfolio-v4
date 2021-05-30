@@ -1,8 +1,15 @@
 import { Grid, Typography } from "@material-ui/core";
 import styled from "styled-components";
 
+const GridItemTechLogo = styled(Grid)`
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+`;
+
 export const SkillLogoStyled = styled.img`
-  width: 30px;
+  max-width: 100%;
+  max-height: 100%;
 `;
 
 export interface SkillSummaryProps {
@@ -13,9 +20,9 @@ export interface SkillSummaryProps {
 const SkillSummary: React.FC<SkillSummaryProps> = ({ logoSrc, title }) => {
   return (
     <Grid container spacing={1} alignItems="center" wrap="nowrap">
-      <Grid item>
+      <GridItemTechLogo item>
         <SkillLogoStyled src={logoSrc} alt="title" />
-      </Grid>
+      </GridItemTechLogo>
       <Grid item>
         <Typography variant="h6">{title}</Typography>
       </Grid>

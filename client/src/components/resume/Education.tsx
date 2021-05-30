@@ -1,10 +1,11 @@
 import { Typography } from "@material-ui/core";
 import { format } from "date-fns";
 import styled from "styled-components";
+import { EEndDate, FORMAT_DATE_EXP } from "../../models/experience";
 import { Experience } from "../../stores/TimeStore";
 import { mainTheme } from "../../styled/config";
 import { Bullet, TimeStampContainer } from "../layout/TimeLineWrapper";
-import { DatesTypography, FORMAT_DATE_EXP } from "./Experience";
+import { DatesTypography } from "./Experience";
 
 const AStyled = styled.a`
   color: ${mainTheme.palette.secondary.light};
@@ -16,17 +17,30 @@ const AStyled = styled.a`
 
 export interface EducationProps {
   education: Experience[];
+  isSelectable: boolean;
+  setSelected: (exp: Experience | undefined) => void;
 }
 
-const Education: React.FC<EducationProps> = ({ education }) => {
+const Education: React.FC<EducationProps> = ({
+  education,
+  isSelectable,
+  setSelected,
+}) => {
   return (
     <>
       {education.map((edu) => (
         <TimeStampContainer key={edu.title}>
-          <Bullet>{edu.title}</Bullet>
+          <Bullet
+            isSelectable={isSelectable}
+            handleClick={() => setSelected(edu)}
+          >
+            {edu.title}
+          </Bullet>
           <DatesTypography>
             {format(new Date(edu.fromDate), FORMAT_DATE_EXP)} -{" "}
-            {format(new Date(edu.toDate), FORMAT_DATE_EXP)}
+            {edu.toDate === EEndDate.PRESENT
+              ? EEndDate.PRESENT
+              : format(new Date(edu.toDate), FORMAT_DATE_EXP)}
           </DatesTypography>
           <Typography>{edu.description}</Typography>
         </TimeStampContainer>

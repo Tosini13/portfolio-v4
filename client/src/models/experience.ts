@@ -1,6 +1,11 @@
 import { Id } from "./general";
 
-export type TEndDate = string | "PRESENT";
+export const FORMAT_DATE_EXP = "yyyy/MM";
+
+export enum EEndDate {
+  "PRESENT" = "PRESENT",
+}
+export type TEndDate = string | EEndDate.PRESENT;
 
 export enum EExperienceType {
   "EDUCATION" = "EDUCATION",
@@ -17,3 +22,5 @@ export interface IExperience {
   technologies?: string[];
   type: EExperienceType;
 }
+
+export type TCreateExperience = Omit<IExperience, "id">;
