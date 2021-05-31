@@ -20,9 +20,15 @@ import DeleteForm from "../forms/DeleteForm";
 import { deleteImage } from "../../stores/actions/resources";
 import { E_ROUTES } from "../menu/useRoutes";
 
-const gridSizeSkills = {
-  lg: 5 as GridSize,
+const gridSizeBox = {
+  lg: 4 as GridSize,
   md: 9 as GridSize,
+  xs: 10 as GridSize,
+};
+
+const gridSizeSkills = {
+  sm: 5 as GridSize,
+  xs: 9 as GridSize,
 };
 
 const FrontendBox = styled(Paper)`
@@ -31,6 +37,7 @@ const FrontendBox = styled(Paper)`
   padding-right: 20px;
   position: relative;
   overflow: hidden;
+  width: 100%;
 `;
 
 const BackendBox = styled(FrontendBox)`
@@ -99,7 +106,7 @@ const Skills: React.FC<SkillsProps> = observer(() => {
       <div style={{ padding: "0px 10px" }}>
         <Grid container justify="space-evenly" spacing={3}>
           {frontEnd.length ? (
-            <Grid item sm={5}>
+            <Grid item {...gridSizeBox}>
               <FrontendBox variant="elevation">
                 <BoxTitle>FrontEnd</BoxTitle>
                 <Grid container spacing={1} justify="space-evenly">
@@ -121,7 +128,7 @@ const Skills: React.FC<SkillsProps> = observer(() => {
             </Grid>
           ) : null}
           {backEnd.length || tools.length ? (
-            <Grid item sm={5}>
+            <Grid item {...gridSizeBox}>
               {backEnd.length ? (
                 <BackendBox
                   variant="elevation"

@@ -8,6 +8,8 @@ const birthday = "1997/07/20";
 const gridSize = {
   lg: 6 as GridSize,
   md: 12 as GridSize,
+  sm: 12 as GridSize,
+  xs: 12 as GridSize,
 };
 
 export interface PersonalDetailsProps {}
@@ -16,7 +18,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = () => {
   return (
     <>
       <Typography variant="h6">WEB DEVELOPER</Typography>
-      <Grid container>
+      <Grid container spacing={2}>
         <Grid item {...gridSize}>
           <PersonalDetailsItem
             title="Birthday"
