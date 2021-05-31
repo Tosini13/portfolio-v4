@@ -1,13 +1,13 @@
 import { Grid, Typography } from "@material-ui/core";
 import { format, isSameMonth, isValid } from "date-fns";
 import styled from "styled-components";
+
 import { EEndDate, FORMAT_DATE_EXP, TEndDate } from "../../models/experience";
-import { Experience } from "../../stores/TimeStore";
-import { Bullet, TimeStampContainer } from "../layout/TimeLineWrapper";
-import { Dates } from "./Layout";
 
 export const FromDateTypography = styled(Typography)`
   background-color: gray;
+  color: white;
+  letter-spacing: 1px;
   width: fit-content;
   padding: 2px 20px 2px 14px;
   font-size: 12px;
@@ -51,34 +51,22 @@ const showToDate = (fromDate: string, toDate: TEndDate) => {
   return toDate;
 };
 
-export interface ExperienceProps {
-  jobs: Experience[];
-  isSelectable: boolean;
-  setSelected: (exp: Experience | undefined) => void;
-}
-
-const ExperienceComponent: React.FC<ExperienceProps> = ({
-  jobs,
-  isSelectable,
-  setSelected,
-}) => {
-  return (
-    <>
-      {jobs.map((exp) => (
-        <TimeStampContainer key={exp.id}>
-          <Bullet
-            isSelectable={isSelectable}
-            handleClick={() => setSelected(exp)}
-          >
-            {exp.title}
-          </Bullet>
-          <Typography>{exp.institution}</Typography>
-          <Dates fromDate={exp.fromDate} toDate={exp.toDate} />
-          <Typography>{exp.description}</Typography>
-        </TimeStampContainer>
-      ))}
-    </>
-  );
+export type TDatesParams = {
+  fromDate: string;
+  toDate?: string;
 };
 
-export default ExperienceComponent;
+export const Dates: React.FC<TDatesParams> = ({ fromDate, toDate }) => (
+  <Grid container>
+    <Grid item>
+      <FromDateTypography>
+        {format(new Date(fromDate), FORMAT_DATE_EXP)}
+      </FromDateTypography>
+    </Grid>
+    {toDate ? (
+      <Grid item>
+        <ToDateTypography>{showToDate(fromDate, toDate)}</ToDateTypography>
+      </Grid>
+    ) : null}
+  </Grid>
+);

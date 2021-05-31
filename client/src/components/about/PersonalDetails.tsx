@@ -1,6 +1,7 @@
 import { Grid, GridSize, Typography } from "@material-ui/core";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import { differenceInYears, format } from "date-fns";
+import styled from "styled-components";
 import { mainTheme } from "../../styled/config";
 
 const birthday = "1997/07/20";
@@ -17,8 +18,15 @@ export interface PersonalDetailsProps {}
 const PersonalDetails: React.FC<PersonalDetailsProps> = () => {
   return (
     <>
-      <Typography variant="h6">WEB DEVELOPER</Typography>
-      <Grid container spacing={2}>
+      <Typography
+        variant="h5"
+        align="left"
+        color="secondary"
+        style={{ marginBottom: "15px", fontWeight: 600 }}
+      >
+        WEB DEVELOPER
+      </Typography>
+      <Grid container spacing={1}>
         <Grid item {...gridSize}>
           <PersonalDetailsItem
             title="Birthday"
@@ -53,6 +61,15 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = () => {
 
 export default PersonalDetails;
 
+const MenuIconStyled = styled(KeyboardArrowRightIcon)`
+  color: ${mainTheme.palette.secondary.light};
+  padding-top: 4px;
+`;
+
+const ImgStyled = styled.img`
+  width: 100%;
+`;
+
 type TPersonalDetailsItemProps = {
   title: string;
   content: string;
@@ -63,11 +80,8 @@ const PersonalDetailsItem: React.FC<TPersonalDetailsItemProps> = ({
   content,
 }) => (
   <Grid container spacing={1} alignItems="center" wrap="nowrap">
-    <Grid item>
-      <KeyboardArrowRightIcon
-        fontSize="small"
-        style={{ color: mainTheme.palette.secondary.light }}
-      />
+    <Grid item style={{ position: "relative" }}>
+      <MenuIconStyled />
     </Grid>
     <Grid item>
       <Typography style={{ fontWeight: "bold" }}>{title}:</Typography>

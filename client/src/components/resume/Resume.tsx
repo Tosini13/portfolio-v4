@@ -8,7 +8,7 @@ import {
   SectionWrapper,
 } from "../layout/SectionWrapper";
 import TimeLineWrapper from "../layout/TimeLineWrapper";
-import { E_ROUTES } from "../menu/useRoutes";
+import { E_ROUTES } from "../../hooks/useRoutes";
 import Education from "./Education";
 import ExperienceComponent from "./Experience";
 import Summary from "./Summary";

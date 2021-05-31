@@ -5,7 +5,7 @@ import { Grid, Hidden, Typography } from "@material-ui/core";
 
 import styled from "styled-components";
 import { mainTheme } from "../../styled/config";
-import useRoutes from "./useRoutes";
+import useRoutes from "../../hooks/useRoutes";
 import { parseStyledBoolean } from "../../styled/booleanParser";
 
 const GridContainer = styled(Grid)`

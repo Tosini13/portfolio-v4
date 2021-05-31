@@ -5,9 +5,9 @@ import {
   SectionWrapper,
 } from "../layout/SectionWrapper";
 import PersonalDetails from "./PersonalDetails";
-import MyImage from "../../images/me.jpeg";
+import MyImage from "../../images/me.png";
 import styled from "styled-components";
-import { E_ROUTES } from "../menu/useRoutes";
+import { E_ROUTES } from "../../hooks/useRoutes";
 
 const gridSize = {
   xs: 12 as GridSize,

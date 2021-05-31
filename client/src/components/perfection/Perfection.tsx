@@ -7,8 +7,9 @@ import TimeLineWrapper, {
   Bullet,
   TimeStampContainer,
 } from "../layout/TimeLineWrapper";
-import { DatesTypography } from "../resume/Experience";
+import { FromDateTypography } from "../resume/Experience";
 import { FORMAT_DATE_EXP } from "../../models/experience";
+import { Dates } from "../resume/Layout";
 
 export interface PerfectionProps {}
 
@@ -22,9 +23,7 @@ const Perfection: React.FC<PerfectionProps> = () => {
       <TimeLineWrapper>
         <TimeStampContainer>
           <Bullet>JWT Token</Bullet>
-          <DatesTypography>
-            {format(new Date("2021/05/15"), FORMAT_DATE_EXP)}
-          </DatesTypography>
+          <Dates fromDate={"2021/05/15"} />
           <Typography>I am going to learn it soon!</Typography>
         </TimeStampContainer>
       </TimeLineWrapper>

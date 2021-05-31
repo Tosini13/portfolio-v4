@@ -1,5 +1,5 @@
 import { SectionTitle, SectionWrapper } from "../layout/SectionWrapper";
-import { E_ROUTES } from "../menu/useRoutes";
+import { E_ROUTES } from "../../hooks/useRoutes";
 
 export interface HomeProps {}
 

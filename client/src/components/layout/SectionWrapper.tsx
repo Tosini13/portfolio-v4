@@ -1,7 +1,7 @@
 import { Grid, Typography, TypographyProps } from "@material-ui/core";
 import styled from "styled-components";
 import { mainTheme } from "../../styled/config";
-import { E_ROUTES } from "../menu/useRoutes";
+import { E_ROUTES } from "../../hooks/useRoutes";
 import Actions, { TActionsProps } from "./Actions";
 
 export enum E_SECTION_BACKGROUND {

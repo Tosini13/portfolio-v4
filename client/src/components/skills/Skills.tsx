@@ -18,7 +18,7 @@ import TechnologyForm from "./form/TechnologyForm";
 import useFormManager from "../../hooks/useFormManager";
 import DeleteForm from "../forms/DeleteForm";
 import { deleteImage } from "../../stores/actions/resources";
-import { E_ROUTES } from "../menu/useRoutes";
+import { E_ROUTES } from "../../hooks/useRoutes";
 
 const gridSizeBox = {
   lg: 4 as GridSize,

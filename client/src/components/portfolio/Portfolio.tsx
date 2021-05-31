@@ -8,7 +8,7 @@ import {
   SectionTitle,
   SectionWrapper,
 } from "../layout/SectionWrapper";
-import { E_ROUTES } from "../menu/useRoutes";
+import { E_ROUTES } from "../../hooks/useRoutes";
 import ProjectDetails from "./details/ProjectDetails";
 import ProjectSummary from "./ProjectSummary";
 import useFormManager from "../../hooks/useFormManager";
