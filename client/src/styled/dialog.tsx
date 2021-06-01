@@ -2,6 +2,7 @@ import {
   CircularProgress,
   Dialog,
   DialogContent,
+  DialogContentProps,
   DialogProps,
 } from "@material-ui/core";
 import styled from "styled-components";
@@ -45,12 +46,11 @@ const Processing = () => <CircularProgressStyled color="secondary" />;
 const DialogContentStyled = styled(DialogContent)`
   max-height: 400px;
   overflow-y: auto;
+  background-color: white;
 `;
 
 export interface DialogContentRCProps {}
 
-export const DialogContentRC: React.FC<DialogContentRCProps> = ({
-  children,
-}) => {
+export const DialogContentRC: React.FC<DialogContentProps> = ({ children }) => {
   return <DialogContentStyled>{children}</DialogContentStyled>;
 };
