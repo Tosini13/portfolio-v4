@@ -2,8 +2,9 @@ import { Typography } from "@material-ui/core";
 import styled from "styled-components";
 import { Experience } from "../../stores/TimeStore";
 import { mainTheme } from "../../styled/config";
-import { Bullet, TimeStampContainer } from "../layout/TimeLineWrapper";
+import { TimeStampContainer } from "../layout/TimeLineWrapper";
 import { Dates } from "./Layout";
+import { Bullet } from "../layout/Bullet";
 
 const AStyled = styled.a`
   color: ${mainTheme.palette.secondary.light};

@@ -1,11 +1,9 @@
 import { Typography } from "@material-ui/core";
 
 import { SectionTitle, SectionWrapper } from "../layout/SectionWrapper";
-import TimeLineWrapper, {
-  Bullet,
-  TimeStampContainer,
-} from "../layout/TimeLineWrapper";
+import TimeLineWrapper, { TimeStampContainer } from "../layout/TimeLineWrapper";
 import { Dates } from "../resume/Layout";
+import { Bullet } from "../layout/Bullet";
 
 export interface PerfectionProps {}
 

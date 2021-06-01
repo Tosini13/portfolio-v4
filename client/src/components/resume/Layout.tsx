@@ -66,7 +66,7 @@ export type TDatesParams = {
 };
 
 export const Dates: React.FC<TDatesParams> = ({ fromDate, toDate }) => (
-  <Grid container>
+  <Grid container style={{ margin: "10px 0px" }}>
     <Grid item>
       <FromDateTypography>
         {isValid(new Date(fromDate))

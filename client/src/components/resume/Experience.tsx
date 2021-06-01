@@ -1,8 +1,9 @@
 import { Typography } from "@material-ui/core";
 import styled from "styled-components";
 import { Experience } from "../../stores/TimeStore";
-import { Bullet, TimeStampContainer } from "../layout/TimeLineWrapper";
+import { TimeStampContainer } from "../layout/TimeLineWrapper";
 import { Dates } from "./Layout";
+import { Bullet, InstitutionTypography } from "../layout/Bullet";
 
 export const FromDateTypography = styled(Typography)`
   background-color: gray;
@@ -57,7 +58,7 @@ const ExperienceComponent: React.FC<ExperienceProps> = ({
           >
             {exp.title}
           </Bullet>
-          <Typography>{exp.institution}</Typography>
+          <InstitutionTypography>{exp.institution}</InstitutionTypography>
           <Dates fromDate={exp.fromDate} toDate={exp.toDate} />
           <Typography>{exp.description}</Typography>
         </TimeStampContainer>

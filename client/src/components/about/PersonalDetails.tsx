@@ -3,6 +3,7 @@ import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import { differenceInYears, format } from "date-fns";
 import styled from "styled-components";
 import { mainTheme } from "../../styled/config";
+import SubTitleTypography from "../../styled/typography";
 
 const birthday = "1997/07/20";
 
@@ -18,14 +19,7 @@ export interface PersonalDetailsProps {}
 const PersonalDetails: React.FC<PersonalDetailsProps> = () => {
   return (
     <>
-      <Typography
-        variant="h5"
-        align="left"
-        color="secondary"
-        style={{ marginBottom: "15px", fontWeight: 600 }}
-      >
-        WEB DEVELOPER
-      </Typography>
+      <SubTitleTypography>WEB DEVELOPER</SubTitleTypography>
       <Grid container spacing={1}>
         <Grid item {...gridSize}>
           <PersonalDetailsItem

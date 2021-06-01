@@ -15,6 +15,7 @@ import Summary from "./Summary";
 import useFormManager from "../../hooks/useFormManager";
 import DeleteForm from "../forms/DeleteForm";
 import ExperienceForm from "./form/ExperienceForm";
+import SubTitleTypography from "../../styled/typography";
 
 const gridSize = {
   sm: 5 as GridSize,
@@ -59,11 +60,11 @@ const Resume: React.FC<ResumeProps> = observer(() => {
       </SectionHeader>
       <Grid container spacing={1} justify="space-evenly">
         <Grid item xs={gridSize.xs} sm={gridSize.sm}>
-          <Typography>Summary</Typography>
+          <SubTitleTypography>Summary</SubTitleTypography>
           <TimeLineWrapper>
             <Summary />
           </TimeLineWrapper>
-          <Typography>Education</Typography>
+          <SubTitleTypography>Education</SubTitleTypography>
           <TimeLineWrapper>
             <Education
               education={timeStore.getEducation}
@@ -73,7 +74,7 @@ const Resume: React.FC<ResumeProps> = observer(() => {
           </TimeLineWrapper>
         </Grid>
         <Grid item xs={gridSize.xs} sm={gridSize.sm}>
-          <Typography>Professional Experience</Typography>
+          <SubTitleTypography>Professional Experience</SubTitleTypography>
           <TimeLineWrapper>
             <ExperienceComponent
               jobs={timeStore.getJobs}
