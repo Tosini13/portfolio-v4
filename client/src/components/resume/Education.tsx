@@ -1,7 +1,5 @@
 import { Typography } from "@material-ui/core";
-import { format } from "date-fns";
 import styled from "styled-components";
-import { EEndDate, FORMAT_DATE_EXP } from "../../models/experience";
 import { Experience } from "../../stores/TimeStore";
 import { mainTheme } from "../../styled/config";
 import { Bullet, TimeStampContainer } from "../layout/TimeLineWrapper";

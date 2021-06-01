@@ -66,10 +66,6 @@ const MenuIconStyled = styled(KeyboardArrowRightIcon)`
   padding-top: 4px;
 `;
 
-const ImgStyled = styled.img`
-  width: 100%;
-`;
-
 type TPersonalDetailsItemProps = {
   title: string;
   content: string;

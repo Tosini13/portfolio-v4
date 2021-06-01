@@ -1,7 +1,5 @@
-import { Grid, Typography } from "@material-ui/core";
-import { format, isSameMonth, isValid } from "date-fns";
+import { Typography } from "@material-ui/core";
 import styled from "styled-components";
-import { EEndDate, FORMAT_DATE_EXP, TEndDate } from "../../models/experience";
 import { Experience } from "../../stores/TimeStore";
 import { Bullet, TimeStampContainer } from "../layout/TimeLineWrapper";
 import { Dates } from "./Layout";
@@ -37,19 +35,6 @@ export const ToDateTypography = styled(FromDateTypography)`
     width: 11px;
   }
 `;
-
-const showToDate = (fromDate: string, toDate: TEndDate) => {
-  if (isSameMonth(new Date(fromDate), new Date(toDate))) {
-    return null;
-  }
-  if (toDate === EEndDate.PRESENT) {
-    return EEndDate.PRESENT;
-  }
-  if (isValid(new Date(toDate))) {
-    return format(new Date(toDate), FORMAT_DATE_EXP);
-  }
-  return toDate;
-};
 
 export interface ExperienceProps {
   jobs: Experience[];

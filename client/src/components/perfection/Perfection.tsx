@@ -1,5 +1,3 @@
-import { format } from "date-fns";
-
 import { Typography } from "@material-ui/core";
 
 import { SectionTitle, SectionWrapper } from "../layout/SectionWrapper";
@@ -7,8 +5,6 @@ import TimeLineWrapper, {
   Bullet,
   TimeStampContainer,
 } from "../layout/TimeLineWrapper";
-import { FromDateTypography } from "../resume/Experience";
-import { FORMAT_DATE_EXP } from "../../models/experience";
 import { Dates } from "../resume/Layout";
 
 export interface PerfectionProps {}
