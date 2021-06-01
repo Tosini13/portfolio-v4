@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Experience } from "../../stores/TimeStore";
 import { mainTheme } from "../../styled/config";
 import { Bullet, TimeStampContainer } from "../layout/TimeLineWrapper";
-import { FromDateTypography } from "./Experience";
 import { Dates } from "./Layout";
 
 const AStyled = styled.a`
