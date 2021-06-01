@@ -141,7 +141,12 @@ const ExperienceForm: React.FC<ExperienceFormProps> = ({
     <DialogRC open={open} isProcessing={isProcessing}>
       <form onSubmit={handleSubmit(executeSubmit)}>
         <DialogTitle>Experience</DialogTitle>
-        <DialogContent>
+        <DialogContent
+          style={{
+            overflowY: "auto",
+            maxHeight: "500px",
+          }}
+        >
           <Grid container direction="column" spacing={2} alignItems="stretch">
             <Grid item>
               <TextFieldRC

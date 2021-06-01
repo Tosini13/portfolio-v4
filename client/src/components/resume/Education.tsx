@@ -41,7 +41,7 @@ const Education: React.FC<EducationProps> = ({
       ))}
       <TimeStampContainer>
         <Bullet>Skills improvement, Everywhere</Bullet>
-        <FromDateTypography>Always</FromDateTypography>
+        <Dates fromDate={"Always"} />
         <Typography>
           I always tend to improve my skills by books, articles on internet or
           videos on YouTube. My favorite YT channel is{" "}

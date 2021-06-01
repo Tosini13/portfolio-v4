@@ -9,7 +9,7 @@ export const FromDateTypography = styled(Typography)`
   color: white;
   letter-spacing: 1px;
   width: fit-content;
-  padding: 2px 20px 2px 14px;
+  padding: 2px 20px;
   font-size: 12px;
   font-weight: bold;
   position: relative;
@@ -17,10 +17,10 @@ export const FromDateTypography = styled(Typography)`
   &::after {
     content: "";
     position: absolute;
-    right: -4px;
+    right: -5px;
     top: 0px;
     height: 100%;
-    width: 7px;
+    width: 10px;
     transform: skew(-25deg, 0deg);
     background-color: white;
     z-index: 2;
@@ -38,17 +38,26 @@ export const ToDateTypography = styled(FromDateTypography)`
   }
 `;
 
-const showToDate = (fromDate: string, toDate: TEndDate) => {
-  if (isSameMonth(new Date(fromDate), new Date(toDate))) {
-    return null;
-  }
+const showToDate = (toDate?: TEndDate) => {
   if (toDate === EEndDate.PRESENT) {
     return EEndDate.PRESENT;
   }
-  if (isValid(new Date(toDate))) {
+  if (toDate && isValid(new Date(toDate))) {
     return format(new Date(toDate), FORMAT_DATE_EXP);
   }
   return toDate;
+};
+
+const shouldShowToDate = (fromDate: string, toDate?: TEndDate) => {
+  if (!toDate) {
+    return false;
+  }
+
+  if (isSameMonth(new Date(fromDate), new Date(toDate))) {
+    return false;
+  }
+
+  return true;
 };
 
 export type TDatesParams = {
@@ -60,12 +69,14 @@ export const Dates: React.FC<TDatesParams> = ({ fromDate, toDate }) => (
   <Grid container>
     <Grid item>
       <FromDateTypography>
-        {format(new Date(fromDate), FORMAT_DATE_EXP)}
+        {isValid(new Date(fromDate))
+          ? format(new Date(fromDate), FORMAT_DATE_EXP)
+          : fromDate}
       </FromDateTypography>
     </Grid>
-    {toDate ? (
+    {shouldShowToDate(fromDate, toDate) ? (
       <Grid item>
-        <ToDateTypography>{showToDate(fromDate, toDate)}</ToDateTypography>
+        <ToDateTypography>{showToDate(toDate)}</ToDateTypography>
       </Grid>
     ) : null}
   </Grid>
