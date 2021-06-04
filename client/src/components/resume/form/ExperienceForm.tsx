@@ -4,7 +4,6 @@ import {
   Button,
   Checkbox,
   DialogActions,
-  DialogContent,
   DialogTitle,
   FormControlLabel,
   Grid,
@@ -22,7 +21,7 @@ import {
 } from "../../../models/experience";
 import { Id } from "../../../models/general";
 import { Experience, TimeStoreContext } from "../../../stores/TimeStore";
-import DialogRC from "../../../styled/dialog";
+import DialogRC, { DialogContentRC } from "../../../styled/dialog";
 import TextFieldRC from "../../../styled/form/inputs";
 import ChooseTechnologies from "../../portfolio/form/ChooseTechnologies";
 import { FORMAT_DATE } from "../../../models/const";
@@ -141,7 +140,7 @@ const ExperienceForm: React.FC<ExperienceFormProps> = ({
     <DialogRC open={open} isProcessing={isProcessing}>
       <form onSubmit={handleSubmit(executeSubmit)}>
         <DialogTitle>Experience</DialogTitle>
-        <DialogContent>
+        <DialogContentRC>
           <Grid container direction="column" spacing={2} alignItems="stretch">
             <Grid item>
               <TextFieldRC
@@ -237,7 +236,7 @@ const ExperienceForm: React.FC<ExperienceFormProps> = ({
               />
             </Grid>
           </Grid>
-        </DialogContent>
+        </DialogContentRC>
         <DialogActions>
           <Button type="submit" disabled={isProcessing}>
             Save

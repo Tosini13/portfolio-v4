@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { observer } from "mobx-react";
-import { Grid, GridSize, Typography } from "@material-ui/core";
+import { Grid, GridSize } from "@material-ui/core";
 import { Experience, TimeStoreContext } from "../../stores/TimeStore";
 import {
   SectionHeader,
@@ -8,13 +8,14 @@ import {
   SectionWrapper,
 } from "../layout/SectionWrapper";
 import TimeLineWrapper from "../layout/TimeLineWrapper";
-import { E_ROUTES } from "../menu/useRoutes";
+import { E_ROUTES } from "../../hooks/useRoutes";
 import Education from "./Education";
 import ExperienceComponent from "./Experience";
 import Summary from "./Summary";
 import useFormManager from "../../hooks/useFormManager";
 import DeleteForm from "../forms/DeleteForm";
 import ExperienceForm from "./form/ExperienceForm";
+import SubTitleTypography from "../../styled/typography";
 
 const gridSize = {
   sm: 5 as GridSize,
@@ -59,11 +60,11 @@ const Resume: React.FC<ResumeProps> = observer(() => {
       </SectionHeader>
       <Grid container spacing={1} justify="space-evenly">
         <Grid item xs={gridSize.xs} sm={gridSize.sm}>
-          <Typography>Summary</Typography>
+          <SubTitleTypography>Summary</SubTitleTypography>
           <TimeLineWrapper>
             <Summary />
           </TimeLineWrapper>
-          <Typography>Education</Typography>
+          <SubTitleTypography>Education</SubTitleTypography>
           <TimeLineWrapper>
             <Education
               education={timeStore.getEducation}
@@ -73,7 +74,7 @@ const Resume: React.FC<ResumeProps> = observer(() => {
           </TimeLineWrapper>
         </Grid>
         <Grid item xs={gridSize.xs} sm={gridSize.sm}>
-          <Typography>Professional Experience</Typography>
+          <SubTitleTypography>Professional Experience</SubTitleTypography>
           <TimeLineWrapper>
             <ExperienceComponent
               jobs={timeStore.getJobs}

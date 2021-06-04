@@ -4,7 +4,6 @@ import { BrowserRouter } from "react-router-dom";
 import { Drawer, Hidden } from "@material-ui/core";
 import styled from "styled-components";
 import About from "./components/about/About";
-import Home from "./components/home/Home";
 import SideBar from "./components/menu/SideBar";
 import Perfection from "./components/perfection/Perfection";
 import Resume from "./components/resume/Resume";
@@ -59,7 +58,6 @@ function App() {
           />
         </Hidden>
         <MainContainerStyled>
-          <Home />
           <About />
           <Skills />
           <Resume />

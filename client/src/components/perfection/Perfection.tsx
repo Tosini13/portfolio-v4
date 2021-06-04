@@ -1,14 +1,9 @@
-import { format } from "date-fns";
-
 import { Typography } from "@material-ui/core";
 
 import { SectionTitle, SectionWrapper } from "../layout/SectionWrapper";
-import TimeLineWrapper, {
-  Bullet,
-  TimeStampContainer,
-} from "../layout/TimeLineWrapper";
-import { DatesTypography } from "../resume/Experience";
-import { FORMAT_DATE_EXP } from "../../models/experience";
+import TimeLineWrapper, { TimeStampContainer } from "../layout/TimeLineWrapper";
+import { Dates } from "../resume/Layout";
+import { Bullet } from "../layout/Bullet";
 
 export interface PerfectionProps {}
 
@@ -22,9 +17,7 @@ const Perfection: React.FC<PerfectionProps> = () => {
       <TimeLineWrapper>
         <TimeStampContainer>
           <Bullet>JWT Token</Bullet>
-          <DatesTypography>
-            {format(new Date("2021/05/15"), FORMAT_DATE_EXP)}
-          </DatesTypography>
+          <Dates fromDate={"2021/05/15"} />
           <Typography>I am going to learn it soon!</Typography>
         </TimeStampContainer>
       </TimeLineWrapper>

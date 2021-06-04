@@ -1,5 +1,6 @@
 import { Typography } from "@material-ui/core";
-import { Bullet, TimeStampContainer } from "../layout/TimeLineWrapper";
+import { Bullet } from "../layout/Bullet";
+import { TimeStampContainer } from "../layout/TimeLineWrapper";
 
 export interface SummaryProps {}
 

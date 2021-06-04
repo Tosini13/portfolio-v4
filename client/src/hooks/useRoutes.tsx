@@ -1,7 +1,6 @@
 import { ReactElement } from "react";
 
 import {
-  Home,
   PermIdentity,
   Build,
   Brush,
@@ -28,11 +27,11 @@ type TRoute = {
 
 const useRoutes = () => {
   const routes: TRoute[] = [
-    {
-      icon: <Home />,
-      path: E_ROUTES.home,
-      title: "home",
-    },
+    // {
+    //   icon: <Home />,
+    //   path: E_ROUTES.home,
+    //   title: "home",
+    // },
     {
       icon: <PermIdentity />,
       path: E_ROUTES.about,

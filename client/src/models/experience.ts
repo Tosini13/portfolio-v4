@@ -1,6 +1,6 @@
 import { Id } from "./general";
 
-export const FORMAT_DATE_EXP = "yyyy/MM";
+export const FORMAT_DATE_EXP = "yyyy MMM";
 
 export enum EEndDate {
   "PRESENT" = "PRESENT",

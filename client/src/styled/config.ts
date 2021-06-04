@@ -16,4 +16,7 @@ export const mainTheme = createMuiTheme({
       secondary: "#fff",
     },
   },
+  typography: {
+    fontFamily: ["Open Sans", "sans-serif"].join(","),
+  },
 });

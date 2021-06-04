@@ -8,7 +8,7 @@ import {
   SectionTitle,
   SectionWrapper,
 } from "../layout/SectionWrapper";
-import { E_ROUTES } from "../menu/useRoutes";
+import { E_ROUTES } from "../../hooks/useRoutes";
 import ProjectDetails from "./details/ProjectDetails";
 import ProjectSummary from "./ProjectSummary";
 import useFormManager from "../../hooks/useFormManager";
@@ -20,10 +20,11 @@ import { deleteImage } from "../../stores/actions/resources";
 const GridItem = styled(Grid)`
   position: relative;
   width: 500px;
+  height: 250px;
   @media only screen and (max-width: 550px) {
     width: 300px;
+    height: 150px;
   }
-  height: 300px;
 `;
 
 export interface PortfolioProps {}

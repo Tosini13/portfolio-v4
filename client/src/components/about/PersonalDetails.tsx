@@ -1,13 +1,17 @@
 import { Grid, GridSize, Typography } from "@material-ui/core";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import { differenceInYears, format } from "date-fns";
+import styled from "styled-components";
 import { mainTheme } from "../../styled/config";
+import SubTitleTypography from "../../styled/typography";
 
 const birthday = "1997/07/20";
 
 const gridSize = {
   lg: 6 as GridSize,
   md: 12 as GridSize,
+  sm: 12 as GridSize,
+  xs: 12 as GridSize,
 };
 
 export interface PersonalDetailsProps {}
@@ -15,8 +19,8 @@ export interface PersonalDetailsProps {}
 const PersonalDetails: React.FC<PersonalDetailsProps> = () => {
   return (
     <>
-      <Typography variant="h6">WEB DEVELOPER</Typography>
-      <Grid container>
+      <SubTitleTypography>WEB DEVELOPER</SubTitleTypography>
+      <Grid container spacing={1}>
         <Grid item {...gridSize}>
           <PersonalDetailsItem
             title="Birthday"
@@ -30,7 +34,11 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = () => {
           />
         </Grid>
         <Grid item {...gridSize}>
-          <PersonalDetailsItem title="Website" content="jakub.bartosik.eu" />
+          <PersonalDetailsItem
+            title="Website"
+            content="jakub.bartosik.eu"
+            href="https://jakub.bartosik.eu"
+          />
         </Grid>
         <Grid item {...gridSize}>
           <PersonalDetailsItem
@@ -51,27 +59,40 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = () => {
 
 export default PersonalDetails;
 
+const MenuIconStyled = styled(KeyboardArrowRightIcon)`
+  color: ${mainTheme.palette.secondary.light};
+  padding-top: 4px;
+`;
+
+const AStyled = styled.a`
+  color: ${mainTheme.palette.secondary.light};
+`;
 type TPersonalDetailsItemProps = {
   title: string;
   content: string;
+  href?: string;
 };
 
 const PersonalDetailsItem: React.FC<TPersonalDetailsItemProps> = ({
   title,
   content,
+  href,
 }) => (
   <Grid container spacing={1} alignItems="center" wrap="nowrap">
-    <Grid item>
-      <KeyboardArrowRightIcon
-        fontSize="small"
-        style={{ color: mainTheme.palette.secondary.light }}
-      />
+    <Grid item style={{ position: "relative" }}>
+      <MenuIconStyled />
     </Grid>
     <Grid item>
       <Typography style={{ fontWeight: "bold" }}>{title}:</Typography>
     </Grid>
     <Grid item>
-      <Typography>{content}</Typography>
+      {href ? (
+        <AStyled href={href} target="_blank" rel="noreferrer">
+          <Typography>{content}</Typography>
+        </AStyled>
+      ) : (
+        <Typography>{content}</Typography>
+      )}
     </Grid>
   </Grid>
 );

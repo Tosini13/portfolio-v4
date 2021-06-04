@@ -1,10 +1,4 @@
-import {
-  Button,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  Grid,
-} from "@material-ui/core";
+import { Button, DialogActions, DialogTitle, Grid } from "@material-ui/core";
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import useAction from "../../../hooks/useAction";
@@ -12,7 +6,7 @@ import { Id } from "../../../models/general";
 import { TCreateProject } from "../../../models/project";
 import { updateImage, uploadImage } from "../../../stores/actions/resources";
 import { Project, ProjectsStoreContext } from "../../../stores/ProjectsStore";
-import DialogRC from "../../../styled/dialog";
+import DialogRC, { DialogContentRC } from "../../../styled/dialog";
 import TextFieldRC from "../../../styled/form/inputs";
 import UploadImage from "../../forms/UploadImage";
 import ChooseTechnologies from "./ChooseTechnologies";
@@ -133,7 +127,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
     <DialogRC open={open} isProcessing={isProcessing}>
       <form onSubmit={handleSubmit(executeSubmit)}>
         <DialogTitle>Technology</DialogTitle>
-        <DialogContent>
+        <DialogContentRC>
           <Grid container direction="column" spacing={2} alignItems="stretch">
             <Grid item>
               <UploadImage
@@ -147,10 +141,16 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
               />
             </Grid>
             <Grid item>
-              <TextFieldRC label="Title" inputRef={titleRef} {...titleProps} />
+              <TextFieldRC
+                fullWidth
+                label="Title"
+                inputRef={titleRef}
+                {...titleProps}
+              />
             </Grid>
             <Grid item>
               <TextFieldRC
+                fullWidth
                 multiline
                 label="Description"
                 inputRef={descRef}
@@ -159,6 +159,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
             </Grid>
             <Grid item>
               <TextFieldRC
+                fullWidth
                 label="Website url"
                 inputRef={wwwRef}
                 {...wwwProps}
@@ -166,6 +167,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
             </Grid>
             <Grid item>
               <TextFieldRC
+                fullWidth
                 label="GitHub url"
                 inputRef={githubRef}
                 {...githubProps}
@@ -178,7 +180,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
               />
             </Grid>
           </Grid>
-        </DialogContent>
+        </DialogContentRC>
         <DialogActions>
           <Button type="submit" disabled={isProcessing}>
             Save
