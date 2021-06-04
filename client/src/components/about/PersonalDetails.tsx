@@ -34,7 +34,11 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = () => {
           />
         </Grid>
         <Grid item {...gridSize}>
-          <PersonalDetailsItem title="Website" content="jakub.bartosik.eu" />
+          <PersonalDetailsItem
+            title="Website"
+            content="jakub.bartosik.eu"
+            href="https://jakub.bartosik.eu"
+          />
         </Grid>
         <Grid item {...gridSize}>
           <PersonalDetailsItem
@@ -60,14 +64,19 @@ const MenuIconStyled = styled(KeyboardArrowRightIcon)`
   padding-top: 4px;
 `;
 
+const AStyled = styled.a`
+  color: ${mainTheme.palette.secondary.light};
+`;
 type TPersonalDetailsItemProps = {
   title: string;
   content: string;
+  href?: string;
 };
 
 const PersonalDetailsItem: React.FC<TPersonalDetailsItemProps> = ({
   title,
   content,
+  href,
 }) => (
   <Grid container spacing={1} alignItems="center" wrap="nowrap">
     <Grid item style={{ position: "relative" }}>
@@ -77,7 +86,13 @@ const PersonalDetailsItem: React.FC<TPersonalDetailsItemProps> = ({
       <Typography style={{ fontWeight: "bold" }}>{title}:</Typography>
     </Grid>
     <Grid item>
-      <Typography>{content}</Typography>
+      {href ? (
+        <AStyled href={href} target="_blank" rel="noreferrer">
+          <Typography>{content}</Typography>
+        </AStyled>
+      ) : (
+        <Typography>{content}</Typography>
+      )}
     </Grid>
   </Grid>
 );

@@ -12,6 +12,13 @@ import { E_ROUTES } from "../../hooks/useRoutes";
 const gridSize = {
   xs: 12 as GridSize,
 };
+
+const TypographyStyled = styled(Typography)`
+  margin: 40px auto;
+  max-width: 600px;
+  text-align: justify;
+`;
+
 const ImgStyled = styled.img`
   width: 100%;
 `;
@@ -22,14 +29,14 @@ const About: React.FC<AboutProps> = () => {
   return (
     <SectionWrapper background={E_SECTION_BACKGROUND.EVEN} id={E_ROUTES.about}>
       <SectionTitle>About</SectionTitle>
-      <Typography style={{ margin: "20px 0px" }}>
+      <TypographyStyled>
         I am a passionate web programmer collecting more and more technologies
         that I can use for developing projects that I take part in. So far I was
         working mostly as front-end developer, but I use my free time to gain
         skills in backend as well. Meanwhile I spend time on my hobbies
         developing creative projects, my ideas as well :), watching football,
         playing guitar and when there's time travelling.
-      </Typography>
+      </TypographyStyled>
       <Grid container spacing={2}>
         <Grid
           item
