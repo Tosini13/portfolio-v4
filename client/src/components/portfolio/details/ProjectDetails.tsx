@@ -20,10 +20,6 @@ const ProjectImgStyled = styled.img`
   width: 100%;
 `;
 
-const ContentStyled = styled(DialogContentRC)`
-  background-color: white;
-`;
-
 export interface ProjectDetailsProps {
   open: boolean;
   handleClose: () => void;

@@ -18,8 +18,8 @@ export const FromDateTypography = styled(Typography)`
     content: "";
     position: absolute;
     right: -5px;
-    top: 0px;
-    height: 100%;
+    top: -2px;
+    height: calc(100% + 4px);
     width: 10px;
     transform: skew(-25deg, 0deg);
     background-color: white;
@@ -29,10 +29,8 @@ export const FromDateTypography = styled(Typography)`
 
 export const ToDateTypography = styled(FromDateTypography)`
   margin-left: 0px;
-  padding-right: 10px;
   &::after {
     content: "";
-    background-color: gray;
     right: -5px;
     width: 11px;
   }

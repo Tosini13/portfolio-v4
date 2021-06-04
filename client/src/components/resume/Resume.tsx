@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { observer } from "mobx-react";
-import { Grid, GridSize, Typography } from "@material-ui/core";
+import { Grid, GridSize } from "@material-ui/core";
 import { Experience, TimeStoreContext } from "../../stores/TimeStore";
 import {
   SectionHeader,
