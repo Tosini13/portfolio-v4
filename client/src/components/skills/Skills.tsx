@@ -38,6 +38,7 @@ const FrontendBox = styled(Paper)`
   position: relative;
   overflow: hidden;
   width: 100%;
+  box-sizing: border-box;
 `;
 
 const BackendBox = styled(FrontendBox)`
