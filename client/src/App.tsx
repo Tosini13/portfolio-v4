@@ -31,7 +31,6 @@ const BodyContainerStyled = styled.div`
 const MainContainerStyled = styled.main`
   min-height: 100vh;
   flex-grow: 1;
-  padding-bottom: 50px;
 `;
 
 function App() {

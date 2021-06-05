@@ -20,3 +20,9 @@ export const mainTheme = createMuiTheme({
     fontFamily: ["Open Sans", "sans-serif"].join(","),
   },
 });
+
+export const useColors = () => {
+  return {
+    titleColor: "#173b6c",
+  };
+};

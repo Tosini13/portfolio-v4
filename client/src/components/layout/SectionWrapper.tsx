@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Grid, Typography, TypographyProps } from "@material-ui/core";
 import styled from "styled-components";
-import { mainTheme } from "../../styled/config";
+import { mainTheme, useColors } from "../../styled/config";
 import { E_ROUTES } from "../../hooks/useRoutes";
 import Actions, { TActionsProps } from "./Actions";
 import { AuthStoreContext } from "../../stores/AuthStore";
@@ -25,9 +25,8 @@ const getBackground = (background?: E_SECTION_BACKGROUND): string => {
 export const SectionWrapperStyled = styled.section<{
   background?: E_SECTION_BACKGROUND;
 }>`
-  padding: 10px 5px;
+  padding: 10px 5px 70px 5px;
   overflow: hidden;
-  min-height: 100vh;
   ${(props) => getBackground(props?.background)}
 `;
 
@@ -52,7 +51,7 @@ const SectionTitleStyled = styled(Typography)`
   color: black;
   width: fit-content;
   padding: 4px 10px;
-  margin-bottom: 15px;
+  margin-bottom: 50px;
   font-weight: 600;
   &:after {
     content: "";
@@ -66,8 +65,9 @@ const SectionTitleStyled = styled(Typography)`
 `;
 
 export const SectionTitle: React.FC<TypographyProps> = ({ children }) => {
+  const { titleColor } = useColors();
   return (
-    <SectionTitleStyled color="primary" variant="h4">
+    <SectionTitleStyled variant="h4" style={{ color: titleColor }}>
       {children}
     </SectionTitleStyled>
   );

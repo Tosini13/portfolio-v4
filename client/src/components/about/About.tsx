@@ -14,7 +14,8 @@ const gridSize = {
 };
 
 const TypographyStyled = styled(Typography)`
-  margin: 40px auto;
+  margin: 0px auto;
+  margin-bottom: 60px;
   max-width: 600px;
   text-align: justify;
 `;

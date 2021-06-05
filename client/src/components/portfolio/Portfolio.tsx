@@ -4,6 +4,7 @@ import { observer } from "mobx-react";
 import { Grid } from "@material-ui/core";
 import { Project, ProjectsStoreContext } from "../../stores/ProjectsStore";
 import {
+  E_SECTION_BACKGROUND,
   SectionHeader,
   SectionTitle,
   SectionWrapper,
@@ -60,7 +61,10 @@ const Portfolio: React.FC<PortfolioProps> = observer(() => {
   };
 
   return (
-    <SectionWrapper id={E_ROUTES.portfolio}>
+    <SectionWrapper
+      id={E_ROUTES.portfolio}
+      background={E_SECTION_BACKGROUND.ODD}
+    >
       <SectionHeader
         handleCreate={handleCreate}
         handleEdit={handleEdit}

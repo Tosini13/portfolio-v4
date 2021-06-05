@@ -1,9 +1,4 @@
-import {
-  CircularProgress,
-  Grid,
-  IconButton,
-  Typography,
-} from "@material-ui/core";
+import { Grid, IconButton, Typography } from "@material-ui/core";
 import styled from "styled-components";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LaunchIcon from "@material-ui/icons/Launch";
@@ -38,7 +33,7 @@ const ProjectDetails: React.SFC<ProjectDetailsProps> = ({
   const techStore = useContext(TechnologiesStoreContext);
 
   if (!project) {
-    return <CircularProgress />;
+    return null;
   }
 
   const frontendTech = techStore.getFrontend.filter((tech) =>

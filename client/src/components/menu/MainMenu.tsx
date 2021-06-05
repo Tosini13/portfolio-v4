@@ -1,12 +1,11 @@
 import { ReactElement } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { Grid, Hidden, Typography } from "@material-ui/core";
 
 import styled from "styled-components";
 import { mainTheme } from "../../styled/config";
 import useRoutes from "../../hooks/useRoutes";
-import { parseStyledBoolean } from "../../styled/booleanParser";
 
 const GridContainer = styled(Grid)`
   padding-left: 10px;
@@ -78,7 +77,6 @@ export interface MenuItemProps {
 }
 
 const MenuItem: React.FC<MenuItemProps> = ({ icon, text, path }) => {
-  const location = useLocation();
   const scrollToSection = () => {
     const el = document.getElementById(path);
     el?.scrollIntoView({
@@ -86,11 +84,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ icon, text, path }) => {
     });
   };
   return (
-    <LinkStyled
-      to={path}
-      current={parseStyledBoolean(path === location.pathname)}
-      onClick={scrollToSection}
-    >
+    <LinkStyled to={path} onClick={scrollToSection}>
       <GridMenuItemContainer container alignItems="center" spacing={2}>
         <Grid item>{icon}</Grid>
         <Grid item>
