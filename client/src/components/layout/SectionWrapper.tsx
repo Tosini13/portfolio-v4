@@ -85,10 +85,10 @@ export const SectionHeader: React.FC<TSectionHeaderProps> = ({
   ...actionProps
 }) => {
   return (
-    <SectionHeaderGridStyled container alignItems="center" spacing={2}>
+    <SectionHeaderGridStyled container direction="column">
       <Grid item>{children}</Grid>
       {isInAction && (
-        <Grid item>
+        <Grid item style={{ marginBottom: "10px" }}>
           <Actions {...actionProps} />
         </Grid>
       )}
