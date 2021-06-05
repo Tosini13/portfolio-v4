@@ -7,13 +7,13 @@ export const BulletStyled = styled.div<{
   isselectable: boolean;
 }>`
   position: absolute;
-  left: 0px;
+  left: 2px;
   border: ${mainTheme.palette.secondary.light} solid 1px;
   border-radius: 50%;
-  height: 16px;
-  width: 16px;
+  height: 13px;
+  width: 13px;
   background-color: white;
-  margin-top: 2px;
+  margin-top: 4px;
   transition: all 0.3s;
   ${(props) =>
     props.isselectable

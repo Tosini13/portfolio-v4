@@ -8,7 +8,7 @@ export const TimeStampContainer = styled.div`
 
 const TimeLine = styled.div`
   position: absolute;
-  top: 2px;
+  top: 4px;
   left: 8px;
   width: 2px;
   height: 100%;
