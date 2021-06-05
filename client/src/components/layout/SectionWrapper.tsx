@@ -1,8 +1,10 @@
+import { useContext } from "react";
 import { Grid, Typography, TypographyProps } from "@material-ui/core";
 import styled from "styled-components";
 import { mainTheme } from "../../styled/config";
 import { E_ROUTES } from "../../hooks/useRoutes";
 import Actions, { TActionsProps } from "./Actions";
+import { AuthStoreContext } from "../../stores/AuthStore";
 
 export enum E_SECTION_BACKGROUND {
   "ODD" = "ODD",
@@ -84,10 +86,11 @@ export const SectionHeader: React.FC<TSectionHeaderProps> = ({
   isInAction,
   ...actionProps
 }) => {
+  const authStore = useContext(AuthStoreContext);
   return (
     <SectionHeaderGridStyled container direction="column">
       <Grid item>{children}</Grid>
-      {isInAction && (
+      {authStore.isLoggedIn && (
         <Grid item style={{ marginBottom: "10px" }}>
           <Actions {...actionProps} />
         </Grid>

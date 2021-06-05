@@ -17,6 +17,9 @@ export enum E_ROUTES {
   "portfolio" = "/portfolio",
   "services" = "/services",
   "contact" = "/contact",
+  "login" = "/login",
+  "signUp" = "/sign-up",
+  "resetPassword" = "/reset-password",
 }
 
 type TRoute = {
