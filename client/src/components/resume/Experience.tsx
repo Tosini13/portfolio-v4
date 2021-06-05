@@ -4,8 +4,9 @@ import { Experience } from "../../stores/TimeStore";
 import { TimeStampContainer } from "../layout/TimeLineWrapper";
 import { Dates } from "./Layout";
 import { Bullet, InstitutionTypography } from "../layout/Bullet";
+import TypographyRC from "../../styled/typography";
 
-export const FromDateTypography = styled(Typography)`
+export const FromDateTypography = styled(TypographyRC)`
   background-color: gray;
   width: fit-content;
   padding: 2px 20px 2px 14px;

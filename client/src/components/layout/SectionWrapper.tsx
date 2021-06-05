@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { Grid, Typography, TypographyProps } from "@material-ui/core";
+import { Grid, TypographyProps } from "@material-ui/core";
 import styled from "styled-components";
 import { mainTheme, useColors } from "../../styled/config";
 import { E_ROUTES } from "../../hooks/useRoutes";
 import Actions, { TActionsProps } from "./Actions";
 import { AuthStoreContext } from "../../stores/AuthStore";
+import TypographyRC from "../../styled/typography";
 
 export enum E_SECTION_BACKGROUND {
   "ODD" = "ODD",
@@ -46,7 +47,7 @@ export const SectionWrapper: React.FC<{
   );
 };
 
-const SectionTitleStyled = styled(Typography)`
+const SectionTitleStyled = styled(TypographyRC)`
   position: relative;
   color: black;
   width: fit-content;

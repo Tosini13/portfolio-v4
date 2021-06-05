@@ -1,10 +1,11 @@
-import { Grid, Typography } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import { format, isSameMonth, isValid } from "date-fns";
 import styled from "styled-components";
 
 import { EEndDate, FORMAT_DATE_EXP, TEndDate } from "../../models/experience";
+import TypographyRC from "../../styled/typography";
 
-export const FromDateTypography = styled(Typography)`
+export const FromDateTypography = styled(TypographyRC)`
   background-color: gray;
   color: white;
   letter-spacing: 1px;
@@ -66,7 +67,7 @@ export type TDatesParams = {
 export const Dates: React.FC<TDatesParams> = ({ fromDate, toDate }) => (
   <Grid container style={{ margin: "10px 0px" }}>
     <Grid item>
-      <FromDateTypography>
+      <FromDateTypography variant="h5">
         {isValid(new Date(fromDate))
           ? format(new Date(fromDate), FORMAT_DATE_EXP)
           : fromDate}
@@ -74,7 +75,7 @@ export const Dates: React.FC<TDatesParams> = ({ fromDate, toDate }) => (
     </Grid>
     {shouldShowToDate(fromDate, toDate) ? (
       <Grid item>
-        <ToDateTypography>{showToDate(toDate)}</ToDateTypography>
+        <ToDateTypography variant="h5">{showToDate(toDate)}</ToDateTypography>
       </Grid>
     ) : null}
   </Grid>

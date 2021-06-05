@@ -15,7 +15,7 @@ import Summary from "./Summary";
 import useFormManager from "../../hooks/useFormManager";
 import DeleteForm from "../forms/DeleteForm";
 import ExperienceForm from "./form/ExperienceForm";
-import SubTitleTypography from "../../styled/typography";
+import { SubTitleTypography } from "../../styled/typography";
 
 const gridSize = {
   sm: 5 as GridSize,

@@ -1,4 +1,4 @@
-import { Grid, GridSize, Typography } from "@material-ui/core";
+import { Grid, GridSize } from "@material-ui/core";
 import {
   E_SECTION_BACKGROUND,
   SectionTitle,
@@ -8,12 +8,13 @@ import PersonalDetails from "./PersonalDetails";
 import MyImage from "../../images/me.png";
 import styled from "styled-components";
 import { E_ROUTES } from "../../hooks/useRoutes";
+import TypographyRC from "../../styled/typography";
 
 const gridSize = {
   xs: 12 as GridSize,
 };
 
-const TypographyStyled = styled(Typography)`
+const TypographyStyled = styled(TypographyRC)`
   margin: 0px auto;
   margin-bottom: 60px;
   max-width: 600px;
@@ -30,7 +31,7 @@ const About: React.FC<AboutProps> = () => {
   return (
     <SectionWrapper background={E_SECTION_BACKGROUND.EVEN} id={E_ROUTES.about}>
       <SectionTitle>About</SectionTitle>
-      <TypographyStyled>
+      <TypographyStyled color="textPrimary">
         I am a passionate web programmer collecting more and more technologies
         that I can use for developing projects that I take part in. So far I was
         working mostly as front-end developer, but I use my free time to gain

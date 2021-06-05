@@ -1,10 +1,11 @@
-import { Grid, IconButton, Typography } from "@material-ui/core";
+import { Grid, IconButton } from "@material-ui/core";
 import styled from "styled-components";
 import MyImage from "../../images/me.jpeg";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import { mainTheme } from "../../styled/config";
+import TypographyRC from "../../styled/typography";
 
 const ImgStyled = styled.img`
   border-radius: 50%;
@@ -23,7 +24,9 @@ const SideBarHeader: React.FC<SideBarHeaderProps> = () => {
         <ImgStyled src={MyImage} alt="my_image" />
       </Grid>
       <Grid item>
-        <Typography>Jakub Bartosik</Typography>
+        <TypographyRC color="textSecondary" variant="h5">
+          Jakub Bartosik
+        </TypographyRC>
       </Grid>
       <Grid item>
         <Media />

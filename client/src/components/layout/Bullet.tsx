@@ -1,6 +1,7 @@
-import { Typography, TypographyProps } from "@material-ui/core";
+import { TypographyProps } from "@material-ui/core";
 import styled from "styled-components";
 import { mainTheme } from "../../styled/config";
+import TypographyRC from "../../styled/typography";
 
 export const BulletStyled = styled.div<{
   isselectable: boolean;
@@ -28,7 +29,7 @@ export const BulletStyled = styled.div<{
       : ""}
 `;
 
-export const TypographyStyled = styled(Typography)`
+export const TypographyStyled = styled(TypographyRC)`
   font-weight: bold;
   margin-left: 5px;
   color: ${mainTheme.palette.secondary.light};
@@ -59,7 +60,7 @@ export const Bullet: React.FC<BulletProps> = ({
 /* ***************** TYPOGRAPHY ************** */
 /* ******************************************* */
 
-export const InstitutionTypographyStyled = styled(Typography)`
+export const InstitutionTypographyStyled = styled(TypographyRC)`
   font-weight: bold;
   margin-left: 5px;
   margin-top: 5px;

@@ -1,9 +1,9 @@
-import { Grid, GridSize, Typography } from "@material-ui/core";
+import { Grid, GridSize } from "@material-ui/core";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import { differenceInYears, format } from "date-fns";
 import styled from "styled-components";
 import { mainTheme } from "../../styled/config";
-import SubTitleTypography from "../../styled/typography";
+import TypographyRC, { SubTitleTypography } from "../../styled/typography";
 
 const birthday = "1997/07/20";
 
@@ -19,8 +19,8 @@ export interface PersonalDetailsProps {}
 const PersonalDetails: React.FC<PersonalDetailsProps> = () => {
   return (
     <>
-      <SubTitleTypography>WEB DEVELOPER</SubTitleTypography>
-      <Grid container spacing={1}>
+      <SubTitleTypography>Web Developer</SubTitleTypography>
+      <Grid container spacing={2}>
         <Grid item {...gridSize}>
           <PersonalDetailsItem
             title="Birthday"
@@ -83,15 +83,17 @@ const PersonalDetailsItem: React.FC<TPersonalDetailsItemProps> = ({
       <MenuIconStyled />
     </Grid>
     <Grid item>
-      <Typography style={{ fontWeight: "bold" }}>{title}:</Typography>
+      <TypographyRC style={{ fontWeight: "bold" }}>{title}:</TypographyRC>
     </Grid>
     <Grid item>
       {href ? (
-        <AStyled href={href} target="_blank" rel="noreferrer">
-          <Typography>{content}</Typography>
-        </AStyled>
+        <TypographyRC>
+          <AStyled href={href} target="_blank" rel="noreferrer">
+            {content}
+          </AStyled>
+        </TypographyRC>
       ) : (
-        <Typography>{content}</Typography>
+        <TypographyRC>{content}</TypographyRC>
       )}
     </Grid>
   </Grid>
