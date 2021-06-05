@@ -28,6 +28,7 @@ const Resume: React.FC<ResumeProps> = observer(() => {
   const timeStore = useContext(TimeStoreContext);
 
   const {
+    isAction,
     isDelete,
     isCreate,
     isEdit,
@@ -46,15 +47,13 @@ const Resume: React.FC<ResumeProps> = observer(() => {
     }
   };
 
-  const isAdmin = true; // TODO: auth
   return (
     <SectionWrapper id={E_ROUTES.resume}>
       <SectionHeader
-        isInAction={isAdmin}
         handleCreate={handleCreate}
         handleEdit={handleEdit}
         handleDelete={handleDelete}
-        handleCancel={handleCancel}
+        handleCancel={isAction ? handleCancel : undefined}
       >
         <SectionTitle>Resume</SectionTitle>
       </SectionHeader>

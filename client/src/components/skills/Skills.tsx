@@ -67,6 +67,7 @@ export interface SkillsProps {}
 const Skills: React.FC<SkillsProps> = observer(() => {
   const techStore = useContext(TechnologiesStoreContext);
   const {
+    isAction,
     isDelete,
     isFormOpened,
     handleCreate,
@@ -92,15 +93,13 @@ const Skills: React.FC<SkillsProps> = observer(() => {
   const backEnd = techStore.getBackend;
   const tools = techStore.getTools;
 
-  const isAdmin = true; // TODO: auth
   return (
     <SectionWrapper background={E_SECTION_BACKGROUND.ODD} id={E_ROUTES.skills}>
       <SectionHeader
-        isInAction={isAdmin}
         handleCreate={handleCreate}
         handleEdit={handleEdit}
         handleDelete={handleDelete}
-        handleCancel={handleCancel}
+        handleCancel={isAction ? handleCancel : undefined}
       >
         <SectionTitle>Skills</SectionTitle>
       </SectionHeader>

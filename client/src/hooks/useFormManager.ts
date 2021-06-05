@@ -26,6 +26,10 @@ const useFormManager = <T>() => {
     isCreate: action === EAction.CREATE,
     selected,
     setSelected,
+    isAction:
+      action === EAction.CREATE ||
+      action === EAction.EDIT ||
+      action === EAction.DELETE,
   };
 };
 

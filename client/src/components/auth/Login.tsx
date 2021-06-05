@@ -9,6 +9,8 @@ import { AuthStoreContext } from "../../stores/AuthStore";
 import { mainTheme } from "../../styled/config";
 import TextFieldRC from "../../styled/form/inputs";
 import { E_ROUTES } from "../../hooks/useRoutes";
+import { Processing } from "../../styled/dialog";
+import useAction from "../../hooks/useAction";
 
 const LinkStyled = styled(Link)`
   color: ${mainTheme.palette.text.secondary};
@@ -34,18 +36,20 @@ export interface LoginProps {}
 const Login: React.FC<LoginProps> = observer(() => {
   const authStore = useContext(AuthStoreContext);
   const router = useHistory();
+  const { isProcessing, execute } = useAction();
   const { register, handleSubmit } = useForm<TLoginForm>();
 
   const [wrongCredentials, setWrongCredentials] = useState<boolean>(false);
 
   const onSubmit = async (data: TLoginForm) => {
-    await authStore.logIn({
+    const promise = authStore.logIn({
       email: data.email,
       password: data.password,
       failureCallBack: () => {
         setWrongCredentials(true);
       },
     });
+    await execute(promise);
   };
 
   if (authStore.isLoggedIn) {
@@ -93,6 +97,7 @@ const Login: React.FC<LoginProps> = observer(() => {
           </Grid>
         </Grid>
       </form>
+      {isProcessing && <Processing />}
     </PaperStyled>
   );
 });

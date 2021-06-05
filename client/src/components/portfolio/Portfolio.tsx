@@ -33,6 +33,7 @@ const Portfolio: React.FC<PortfolioProps> = observer(() => {
   const projectsStore = useContext(ProjectsStoreContext);
 
   const {
+    isAction,
     isDelete,
     isCreate,
     isEdit,
@@ -58,15 +59,13 @@ const Portfolio: React.FC<PortfolioProps> = observer(() => {
     }
   };
 
-  const isAdmin = true; // TODO: auth
   return (
     <SectionWrapper id={E_ROUTES.portfolio}>
       <SectionHeader
-        isInAction={isAdmin}
         handleCreate={handleCreate}
         handleEdit={handleEdit}
         handleDelete={handleDelete}
-        handleCancel={handleCancel}
+        handleCancel={isAction ? handleCancel : undefined}
       >
         <SectionTitle>Portfolio</SectionTitle>
       </SectionHeader>

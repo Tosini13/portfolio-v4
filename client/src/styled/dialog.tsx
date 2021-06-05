@@ -37,7 +37,7 @@ const CircularProgressStyled = styled(CircularProgress)`
   left: 5px;
 `;
 
-const Processing = () => <CircularProgressStyled color="secondary" />;
+export const Processing = () => <CircularProgressStyled color="secondary" />;
 
 /* ********************************* */
 /* ******* DIALOG CHILDREN ********* */

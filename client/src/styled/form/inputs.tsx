@@ -1,8 +1,9 @@
 import { TextField, TextFieldProps } from "@material-ui/core";
 import styled from "styled-components";
+import { parseStyledBoolean, TBooleanStyled } from "../booleanParser";
 
 const TextFieldStyled = styled(TextField)<{
-  fullwidth: boolean;
+  fullwidth: TBooleanStyled;
 }>`
   ${(props) => (props.fullwidth ? `width: 100%;` : "")}
 `;
@@ -20,7 +21,7 @@ const TextFieldRC: React.FC<TextFieldRCProps> = ({
     <TextFieldStyled
       color="secondary"
       {...props}
-      fullwidth={Boolean(fullWidth)}
+      fullwidth={parseStyledBoolean(Boolean(fullWidth))}
     >
       {children}
     </TextFieldStyled>

@@ -77,13 +77,10 @@ const SectionHeaderGridStyled = styled(Grid)`
   position: relative;
 `;
 
-export type TSectionHeaderProps = TActionsProps & {
-  isInAction: boolean;
-};
+export type TSectionHeaderProps = TActionsProps & {};
 
 export const SectionHeader: React.FC<TSectionHeaderProps> = ({
   children,
-  isInAction,
   ...actionProps
 }) => {
   const authStore = useContext(AuthStoreContext);
