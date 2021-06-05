@@ -1,7 +1,7 @@
 import { Grid, IconButton } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LaunchIcon from "@material-ui/icons/Launch";
-import UnfoldMoreIcon from "@material-ui/icons/UnfoldMore";
+import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 
 export interface ProjectSummaryLinksProps {
   gitHub?: string;
@@ -37,7 +37,7 @@ const ProjectSummaryLinks: React.SFC<ProjectSummaryLinksProps> = ({
       {handleMore ? (
         <Grid item>
           <IconButton color="primary" onClick={handleMore}>
-            <UnfoldMoreIcon />
+            <MoreHorizIcon />
           </IconButton>
         </Grid>
       ) : null}

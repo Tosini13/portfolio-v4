@@ -15,7 +15,10 @@ code {
 /* ::-webkit-overflow-scrolling: touch; */
 /* width */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 8px;
+  @media screen only and (max-width: 600px) {
+    width: 4px;
+  }
 }
 
 /* Track */
