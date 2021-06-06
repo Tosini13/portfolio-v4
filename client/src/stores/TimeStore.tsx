@@ -7,8 +7,10 @@ import {
   IExperience,
   TCreateExperience,
   TEndDate,
+  EEndDate,
 } from "../models/experience";
 import { experiencesIdUrl, EXPERIENCES_API_URL } from "../models/const";
+import { isAfter, isBefore } from "date-fns";
 
 export class Experience implements IExperience {
   id: Id;
@@ -45,14 +47,36 @@ export class Experience implements IExperience {
 export class TimeStore {
   experiences: Experience[] = [];
 
+  sortByTime(expA: Experience, expB: Experience) {
+    if (isAfter(new Date(expA.fromDate), new Date(expB.fromDate))) {
+      return 1;
+    }
+    if (isBefore(new Date(expA.fromDate), new Date(expB.fromDate))) {
+      return -1;
+    }
+    const expAToDate =
+      expA.fromDate === EEndDate.PRESENT ? new Date() : expA.fromDate;
+    const expBToDate =
+      expB.fromDate === EEndDate.PRESENT ? new Date() : expB.fromDate;
+    if (isAfter(new Date(expAToDate), new Date(expBToDate))) {
+      return 1;
+    }
+    if (isBefore(new Date(expAToDate), new Date(expBToDate))) {
+      return -1;
+    }
+    return 0;
+  }
+
   get getJobs() {
-    return this.experiences.filter((exp) => exp.type === EExperienceType.JOB);
+    return this.experiences
+      .filter((exp) => exp.type === EExperienceType.JOB)
+      .sort(this.sortByTime);
   }
 
   get getEducation() {
-    return this.experiences.filter(
-      (exp) => exp.type === EExperienceType.EDUCATION
-    );
+    return this.experiences
+      .filter((exp) => exp.type === EExperienceType.EDUCATION)
+      .sort(this.sortByTime);
   }
 
   async fetch() {
