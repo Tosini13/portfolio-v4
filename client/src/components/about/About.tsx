@@ -5,7 +5,7 @@ import {
   SectionWrapper,
 } from "../layout/SectionWrapper";
 import PersonalDetails from "./PersonalDetails";
-import MyImage from "../../images/me.jpg";
+import MyImage from "../../images/me.jpeg";
 import styled from "styled-components";
 import { E_ROUTES } from "../../hooks/useRoutes";
 import TypographyRC from "../../styled/typography";
