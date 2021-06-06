@@ -21,7 +21,8 @@ import { deleteImage } from "../../stores/actions/resources";
 import { E_ROUTES } from "../../hooks/useRoutes";
 
 const gridSizeBox = {
-  lg: 4 as GridSize,
+  xl: 4 as GridSize,
+  lg: 5 as GridSize,
   md: 9 as GridSize,
   xs: 10 as GridSize,
 };
@@ -34,7 +35,8 @@ const gridSizeSkills = {
 const FrontendBox = styled(Paper)`
   border: ${mainTheme.palette.secondary.light} solid 1px;
   padding: 20px 0px;
-  padding-right: 20px;
+  padding-right: 10px;
+  padding-left: 30px;
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -109,7 +111,7 @@ const Skills: React.FC<SkillsProps> = observer(() => {
             <Grid item {...gridSizeBox}>
               <FrontendBox variant="elevation">
                 <BoxTitle>FrontEnd</BoxTitle>
-                <Grid container spacing={1} justify="space-evenly">
+                <Grid container spacing={1} justify="flex-start">
                   {frontEnd.map((technology) => (
                     <Grid
                       item
@@ -135,7 +137,7 @@ const Skills: React.FC<SkillsProps> = observer(() => {
                   style={{ marginBottom: "25px" }}
                 >
                   <BoxBackendTitle>BackEnd</BoxBackendTitle>
-                  <Grid container spacing={1} justify="space-evenly">
+                  <Grid container spacing={1} justify="flex-start">
                     {backEnd.map((technology) => (
                       <Grid
                         item
@@ -155,7 +157,7 @@ const Skills: React.FC<SkillsProps> = observer(() => {
               {tools.length ? (
                 <BackendBox variant="elevation">
                   <BoxBackendTitle>Tools</BoxBackendTitle>
-                  <Grid container spacing={1} justify="space-evenly">
+                  <Grid container spacing={1} justify="flex-start">
                     {tools.map((technology) => (
                       <Grid
                         item

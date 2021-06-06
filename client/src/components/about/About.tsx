@@ -5,7 +5,7 @@ import {
   SectionWrapper,
 } from "../layout/SectionWrapper";
 import PersonalDetails from "./PersonalDetails";
-import MyImage from "../../images/me.png";
+import MyImage from "../../images/me.jpg";
 import styled from "styled-components";
 import { E_ROUTES } from "../../hooks/useRoutes";
 import TypographyRC from "../../styled/typography";
@@ -39,7 +39,7 @@ const About: React.FC<AboutProps> = () => {
         projects covering commissions as well as my own ideas and improving
         skills, watching football, playing guitar and travelling.
       </TypographyStyled>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} justify="space-around">
         <Grid
           item
           style={{ textAlign: "center" }}
@@ -56,7 +56,7 @@ const About: React.FC<AboutProps> = () => {
           {...gridSize}
           sm={9}
           md={7}
-          lg={9}
+          lg={7}
         >
           <PersonalDetails />
         </Grid>
