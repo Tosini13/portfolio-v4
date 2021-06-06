@@ -9,6 +9,7 @@ import MyImage from "../../images/me.jpg";
 import styled from "styled-components";
 import { E_ROUTES } from "../../hooks/useRoutes";
 import TypographyRC from "../../styled/typography";
+import { mainTheme } from "../../styled/config";
 
 const gridSize = {
   xs: 12 as GridSize,
@@ -23,6 +24,8 @@ const TypographyStyled = styled(TypographyRC)`
 
 const ImgStyled = styled.img`
   width: 100%;
+  border: 1px solid ${mainTheme.palette.secondary.light};
+  padding: 5px;
 `;
 
 export interface AboutProps {}
@@ -39,7 +42,12 @@ const About: React.FC<AboutProps> = () => {
         projects covering commissions as well as my own ideas and improving
         skills, watching football, playing guitar and travelling.
       </TypographyStyled>
-      <Grid container spacing={2} justify="space-around">
+      <Grid
+        container
+        spacing={2}
+        justify="space-around"
+        style={{ maxWidth: "100%" }}
+      >
         <Grid
           item
           style={{ textAlign: "center" }}
@@ -54,8 +62,8 @@ const About: React.FC<AboutProps> = () => {
           item
           style={{ textAlign: "center", flexGrow: 1 }}
           {...gridSize}
-          sm={9}
-          md={7}
+          sm={8}
+          md={5}
           lg={7}
         >
           <PersonalDetails />
