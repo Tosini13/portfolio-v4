@@ -4,7 +4,7 @@ import { Experience } from "../../stores/TimeStore";
 import { mainTheme } from "../../styled/config";
 import { TimeStampContainer } from "../layout/TimeLineWrapper";
 import { Dates } from "./Layout";
-import { Bullet } from "../layout/Bullet";
+import { Bullet, InstitutionTypography } from "../layout/Bullet";
 
 const AStyled = styled.a`
   color: ${mainTheme.palette.secondary.light};
@@ -35,6 +35,7 @@ const Education: React.FC<EducationProps> = ({
           >
             {edu.title}
           </Bullet>
+          <InstitutionTypography>{edu.institution}</InstitutionTypography>
           <Dates fromDate={edu.fromDate} toDate={edu.toDate} />
           <Typography>{edu.description}</Typography>
         </TimeStampContainer>
