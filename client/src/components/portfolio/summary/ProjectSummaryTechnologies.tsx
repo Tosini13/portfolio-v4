@@ -7,6 +7,9 @@ const GridItem = styled(Grid)`
   width: 50px;
   height: 50px;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export interface ProjectSummaryTechnologiesProps {

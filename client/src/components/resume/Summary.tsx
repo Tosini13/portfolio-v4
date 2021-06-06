@@ -9,9 +9,9 @@ const Summary: React.FC<SummaryProps> = () => {
     <TimeStampContainer>
       <Bullet>Jakub Bartosik</Bullet>
       <Typography>
-        Innovative and deadline-driven Graphic Designer with 3+ years of
-        experience designing and developing user-centered digital/print
-        marketing material from initial concept to final, polished deliverable.
+        Web developer with over a year of experience with professional teams as
+        well as freelancing using useful and valuable tools or technologies for
+        frontend and backend development.
       </Typography>
     </TimeStampContainer>
   );

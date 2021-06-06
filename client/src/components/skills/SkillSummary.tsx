@@ -5,6 +5,9 @@ const GridItemTechLogo = styled(Grid)`
   width: 40px;
   height: 40px;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const SkillLogoStyled = styled.img`

@@ -44,19 +44,20 @@ const Education: React.FC<EducationProps> = ({
         <Dates fromDate={"Always"} />
         <Typography>
           I always tend to improve my skills by books, articles on internet or
-          videos on YouTube. My favorite YT channel is{" "}
+          YouTube. My favorite YT channel is{" "}
           <AStyled
             href="https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg"
             target="_blank"
           >
             The Net Ninja
           </AStyled>{" "}
-          that contains plenty of diverse technologies' tutorials. I can also
-          recommend{" "}
+          that contains plenty of diverse technologies' tutorials. I enjoy
+          reading articles of{" "}
           <AStyled href="https://medium.com/" target="_blank">
             Medium Daily Digest
           </AStyled>{" "}
-          becasue of their content of the very interesting topics.
+          becasue of their content of really interesting topics. Currently in
+          free time I focus on UX/UI theory and practice.
         </Typography>
       </TimeStampContainer>
     </>

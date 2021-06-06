@@ -32,12 +32,12 @@ const About: React.FC<AboutProps> = () => {
     <SectionWrapper background={E_SECTION_BACKGROUND.EVEN} id={E_ROUTES.about}>
       <SectionTitle>About</SectionTitle>
       <TypographyStyled color="textPrimary">
-        I am a passionate web programmer collecting more and more technologies
+        I am passionate web programmer collecting more and more technologies
         that I can use for developing projects that I take part in. So far I was
-        working mostly as front-end developer, but I use my free time to gain
-        skills in backend as well. Meanwhile I spend time on my hobbies
-        developing creative projects, my ideas as well :), watching football,
-        playing guitar and when there's time travelling.
+        working mostly as front-end developer and occasionally as full-stack
+        developer. Meanwhile I spend time on my hobbies developing creative
+        projects covering commissions as well as my own ideas and improving
+        skills, watching football, playing guitar and travelling.
       </TypographyStyled>
       <Grid container spacing={2}>
         <Grid
