@@ -22,9 +22,24 @@ const TypographyStyled = styled(TypographyRC)`
   text-align: justify;
 `;
 
+const ImgContainer = styled.div`
+  width: fit-content;
+  height: 100%;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 50px;
+    height: 50px;
+    border-left: 1px solid ${mainTheme.palette.secondary.light};
+    border-top: 1px solid ${mainTheme.palette.secondary.light};
+  }
+`;
+
 const ImgStyled = styled.img`
   width: 100%;
-  border: 1px solid ${mainTheme.palette.secondary.light};
   padding: 5px;
 `;
 
@@ -56,7 +71,9 @@ const About: React.FC<AboutProps> = () => {
           md={5}
           lg={3}
         >
-          <ImgStyled src={MyImage} alt="me" />
+          <ImgContainer>
+            <ImgStyled src={MyImage} alt="me" />
+          </ImgContainer>
         </Grid>
         <Grid
           item

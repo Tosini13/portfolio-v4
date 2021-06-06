@@ -41,16 +41,16 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = () => {
           />
         </Grid>
         <Grid item {...gridSize}>
-          <PersonalDetailsItem
-            title="Degree"
-            content="Engineer (Computer Science)"
-          />
-        </Grid>
-        <Grid item {...gridSize}>
           <PersonalDetailsItem title="Phone" content="+48 696 993 916" />
         </Grid>
         <Grid item {...gridSize}>
           <PersonalDetailsItem title="Email" content="jbartos13@gmail.com" />
+        </Grid>
+        <Grid item xs={12}>
+          <PersonalDetailsItem
+            title="Degree"
+            content="Engineer (Computer Science and Information Technology)"
+          />
         </Grid>
       </Grid>
     </>
@@ -61,7 +61,6 @@ export default PersonalDetails;
 
 const MenuIconStyled = styled(KeyboardArrowRightIcon)`
   color: ${mainTheme.palette.secondary.light};
-  padding-top: 4px;
 `;
 
 const AStyled = styled.a`
@@ -78,7 +77,7 @@ const PersonalDetailsItem: React.FC<TPersonalDetailsItemProps> = ({
   content,
   href,
 }) => (
-  <Grid container spacing={1} alignItems="center" wrap="nowrap">
+  <Grid container spacing={1} alignItems="flex-start" wrap="nowrap">
     <Grid item style={{ position: "relative" }}>
       <MenuIconStyled />
     </Grid>
