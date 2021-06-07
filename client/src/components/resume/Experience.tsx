@@ -5,6 +5,7 @@ import { TimeStampContainer } from "../layout/TimeLineWrapper";
 import { Dates } from "./Layout";
 import { Bullet, InstitutionTypography } from "../layout/Bullet";
 import TypographyRC from "../../styled/typography";
+import ExpTechnologies from "./Experience/ExpTechnologies";
 
 export const FromDateTypography = styled(TypographyRC)`
   background-color: gray;
@@ -61,7 +62,10 @@ const ExperienceComponent: React.FC<ExperienceProps> = ({
           </Bullet>
           <InstitutionTypography>{exp.institution}</InstitutionTypography>
           <Dates fromDate={exp.fromDate} toDate={exp.toDate} />
-          <Typography>{exp.description}</Typography>
+          <Typography style={{ marginBottom: "10px" }}>
+            {exp.description}
+          </Typography>
+          <ExpTechnologies expTechnologies={exp.technologies} />
         </TimeStampContainer>
       ))}
     </>

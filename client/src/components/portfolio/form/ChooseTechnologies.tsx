@@ -15,7 +15,7 @@ import { TechnologiesStoreContext } from "../../../stores/TechnologiesStore";
 import { SkillLogoStyled } from "../../skills/SkillSummary";
 
 const GridItem = styled(Grid)<{ selected: boolean }>`
-  margin: 0px 5px;
+  margin: 5px 5px;
   width: 50px;
   height: 50px;
   border-radius: 5px;

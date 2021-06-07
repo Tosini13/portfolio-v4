@@ -36,7 +36,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = () => {
         <Grid item {...gridSize}>
           <PersonalDetailsItem
             title="Website"
-            content="jakubbartosik.com"
+            content="www.jakubbartosik.com"
             href="http://www.jakubbartosik.com"
           />
         </Grid>

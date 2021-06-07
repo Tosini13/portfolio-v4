@@ -7,7 +7,7 @@ export const BulletStyled = styled.div<{
   isselectable: boolean;
 }>`
   position: absolute;
-  left: 2px;
+  left: 1.5px;
   border: ${mainTheme.palette.secondary.light} solid 1px;
   border-radius: 50%;
   height: 13px;
