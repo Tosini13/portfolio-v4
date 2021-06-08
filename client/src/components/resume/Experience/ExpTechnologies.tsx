@@ -1,5 +1,6 @@
 import { Grid, Tooltip } from "@material-ui/core";
-import { useContext } from "react";
+import { observer } from "mobx-react";
+import { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { Id } from "../../../models/general";
 import { TechnologiesStoreContext } from "../../../stores/TechnologiesStore";
@@ -18,47 +19,56 @@ export interface ExpTechnologiesProps {
   expTechnologies?: Id[];
 }
 
-const ExpTechnologies: React.FC<ExpTechnologiesProps> = ({
-  expTechnologies,
-}) => {
-  const techStore = useContext(TechnologiesStoreContext);
+const ExpTechnologies: React.FC<ExpTechnologiesProps> = observer(
+  ({ expTechnologies }) => {
+    const techStore = useContext(TechnologiesStoreContext);
 
-  if (!expTechnologies) {
-    return null;
-  }
+    useEffect(() => {
+      techStore.fetch();
+    }, [techStore]);
 
-  const frontEnd = techStore.getFrontend.filter((tech) =>
-    expTechnologies.includes(tech.id)
-  );
+    if (!expTechnologies) {
+      return null;
+    }
 
-  const backEnd = techStore.getBackend.filter((tech) =>
-    expTechnologies.includes(tech.id)
-  );
+    const frontEnd = techStore.getFrontend.filter((tech) =>
+      expTechnologies.includes(tech.id)
+    );
 
-  const tools = techStore.getTools.filter((tech) =>
-    expTechnologies.includes(tech.id)
-  );
+    const backEnd = techStore.getBackend.filter((tech) =>
+      expTechnologies.includes(tech.id)
+    );
 
-  const fields = [frontEnd, backEnd, tools];
-  return (
-    <Grid container direction="column" spacing={1}>
-      {fields.map((field) => (
-        <Grid item>
-          <Grid container alignItems="center" justify="flex-start" spacing={1}>
-            {field.map((tech) => {
-              return (
-                <Tooltip title={tech.title} key={tech.id}>
-                  <GridItem item>
-                    <SkillLogoStyled src={tech.logoSrc} alt={tech.title} />
-                  </GridItem>
-                </Tooltip>
-              );
-            })}
+    const tools = techStore.getTools.filter((tech) =>
+      expTechnologies.includes(tech.id)
+    );
+
+    const fields = [frontEnd, backEnd, tools];
+    return (
+      <Grid container direction="column" spacing={1}>
+        {fields.map((field) => (
+          <Grid item>
+            <Grid
+              container
+              alignItems="center"
+              justify="flex-start"
+              spacing={1}
+            >
+              {field.map((tech) => {
+                return (
+                  <Tooltip title={tech.title} key={tech.id}>
+                    <GridItem item>
+                      <SkillLogoStyled src={tech.logoSrc} alt={tech.title} />
+                    </GridItem>
+                  </Tooltip>
+                );
+              })}
+            </Grid>
           </Grid>
-        </Grid>
-      ))}
-    </Grid>
-  );
-};
+        ))}
+      </Grid>
+    );
+  }
+);
 
 export default ExpTechnologies;
