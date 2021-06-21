@@ -1,7 +1,6 @@
 import { Grid, IconButton } from "@material-ui/core";
 import styled from "styled-components";
 import MyImage from "../../images/me.jpeg";
-import FacebookIcon from "@material-ui/icons/Facebook";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import { mainTheme } from "../../styled/config";
@@ -40,19 +39,22 @@ export default SideBarHeader;
 const Media = () => (
   <Grid container alignItems="center" justify="center" spacing={1}>
     <Grid item>
-      <IconButton>
-        <FacebookIcon color="primary" />
-      </IconButton>
+      <a
+        href="https://www.linkedin.com/in/jakub-bartosik-331065184/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <IconButton>
+          <LinkedInIcon color="primary" />
+        </IconButton>
+      </a>
     </Grid>
     <Grid item>
-      <IconButton>
-        <LinkedInIcon color="primary" />
-      </IconButton>
-    </Grid>
-    <Grid item>
-      <IconButton>
-        <GitHubIcon color="primary" />
-      </IconButton>
+      <a href="https://github.com/Tosini13" target="_blank" rel="noreferrer">
+        <IconButton>
+          <GitHubIcon color="primary" />
+        </IconButton>
+      </a>
     </Grid>
   </Grid>
 );
